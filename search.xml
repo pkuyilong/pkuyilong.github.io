@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<search>
+  <entry>
+    <title><![CDATA[公平分汤问题]]></title>
+    <url>%2F2019%2F08%2F15%2F%E5%85%AC%E5%B9%B3%E5%88%86%E6%B1%A4%E9%97%AE%E9%A2%98%2F</url>
+    <content type="text"><![CDATA[问题以及解决办法问题1一间囚房里关押着两个犯人。每天监狱都会为这间囚房提供一罐汤，让这两个犯人自己来分。起初，这两个人经常会发生争执，因为他们总是有人认为对方的汤比自己的多。 解决方案 一个人分汤 让另一个人先选。 问题2一间囚房里关押着3个犯人。每天监狱都会为这间囚房提供一罐汤，让犯人来分。 解决方案 让A把汤分成三份 让其余的两个人B、C优先选汤, 剩下的给A 将这B、C两个人的汤进行混合 一个人分汤 让另一个人先选 解题思路假设我们已经知道了二个人的问题的解法，那么三个人的问题是由于二个人的问题演变出来的, 因此可以对问题进行拆分，类似分而治之的方法。所以可以把B、C看成一个整体，那么这就是最初的问题，而且我们已经知道答案了。为什么分成三份，那是因为每个人只能拿走三分之一，经过步骤1和2，A的汤的问题就解决了。剩下的就是B和C的事情了，然后将二人的汤混在一起，这又是最初的分汤问题。 简单解释12345全部汤 = A + (B + C) 这就是问题一 A 满意, 拿走了三分之一的汤三份之二的汤 = B + C 这也是问题一B and C 满意, 各拿走了三分之一的汤皆大欢喜 小结想起老子的一句话：道生一，一生二，二生三，三生万物。]]></content>
+  </entry>
+  <entry>
+    <title><![CDATA[leetcode131_Palindrome_Partitioning]]></title>
+    <url>%2F2019%2F08%2F14%2Fleetcode131-Palindrome-Partitioning%2F</url>
+    <content type="text"><![CDATA[123456789101112131415161718192021222324252627282930313233343536373839404142434445464748495051525354555657585960616263646566676869#include &lt;iostream&gt;#include &lt;vector&gt;#include &lt;string&gt;using namespace std;class Solution &#123;public: vector&lt;vector&lt;string&gt;&gt; partition(string s) &#123; if (s.size() == 0) &#123; return res; &#125; dfs(s); return res; &#125; void dfs(string s) &#123; // 终止条件 if (s.size() == 0) &#123; res.push_back(inter); return; &#125; // 这里截取字符串是可以取完整个字符串的，但是由于写遍历思维定式，以为是小于号，导致失败 for (int i = 1; i &lt;= s.size(); i++) &#123; string leftString = s.substr(0, i); string rightString = s.substr(i); if (isValid(leftString)) &#123; inter.push_back(leftString); dfs(rightString); inter.pop_back(); &#125; &#125; &#125; bool isValid(string s) &#123; unsigned int left = 0; unsigned int right = s.size()-1; while (left &lt; right) &#123; if (s[left] != s[right]) &#123; return false; &#125; else &#123; left++; right--; &#125; &#125; return true; &#125;private: vector&lt;vector&lt;string&gt;&gt; res; vector&lt;string&gt; inter;&#125;;int main() &#123; Solution sol = Solution(); string s(&quot;aab&quot;); vector&lt;vector&lt;string&gt;&gt; res = sol.partition(s); cout &lt;&lt; res.size() &lt;&lt; endl; cout &lt;&lt; &quot;res &quot; &lt;&lt; endl; for (auto item : res) &#123; for (auto x : item) &#123; cout &lt;&lt; x &lt;&lt; endl; &#125; cout &lt;&lt; endl; &#125; return 0;&#125;]]></content>
+  </entry>
+  <entry>
+    <title><![CDATA[producer_consumer_pattern]]></title>
+    <url>%2F2019%2F08%2F14%2Fproducer-consumer-pattern%2F</url>
+    <content type="text"><![CDATA[123456789101112wait(S) &#123; while (S &lt;= 0) &#123; continue; &#125; S--;&#125;&#125;signal(S) &#123; S++;&#125; 12345678910111213141516171819202122232425full = 0empty = nmutext = 1void produce() &#123; while (true) &#123; wait(empty) wait(mutex) produce one item signal(mutex) signal(full) &#125;&#125;void consume() &#123; while (true) &#123; wait(full) wait(mutex) consume one item signal(mutex) signal(empty) &#125;&#125;]]></content>
+  </entry>
+  <entry>
+    <title><![CDATA[容易犯的错误]]></title>
+    <url>%2F2019%2F08%2F14%2Fmistakes%2F</url>
+    <content type="text"><![CDATA[C++ = and == 引用 for 循环的思维定式，不会根据具体情况考虑 Python python2 python3的除法问题]]></content>
+  </entry>
+  <entry>
+    <title><![CDATA[leetcode206_Reverse_Linked_List]]></title>
+    <url>%2F2019%2F08%2F14%2Fleetcode206-Reverse-Linked-List%2F</url>
+    <content type="text"><![CDATA[123456789101112131415161718class Solution &#123;public: ListNode* reverseList(ListNode* head) &#123; if (head == nullptr || head-&gt;next == nullptr) &#123; return head; &#125; ListNode* prev = nullptr; ListNode* cur = head; while (cur) &#123; ListNode* nextNode = cur-&gt;next; cur-&gt;next = prev; prev = cur; cur = nextNode; &#125; return prev; &#125;&#125;;]]></content>
+  </entry>
+  <entry>
+    <title><![CDATA[leetcode239_SlidingWindowMaximum]]></title>
+    <url>%2F2019%2F08%2F13%2Fleetcode239-SlidingWindowMaximum%2F</url>
+    <content type="text"><![CDATA[code123456789101112131415161718192021222324252627class Solution &#123;public: vector&lt;int&gt; maxSlidingWindow(vector&lt;int&gt;&amp; nums, int k) &#123; deque&lt;int&gt; q; vector&lt;int&gt; res; for (int i = 0; i &lt; nums.size(); ++i) &#123; // 按照从大到小的顺序进行存储 在队列中的数字如果小于当前数字则移除 while (!q.empty() &amp;&amp; nums[q.back()] &lt; nums[i]) &#123; q.pop_back(); &#125; q.push_back(i); // 如果已经超过了k个 将最前边的数字移除 if (i - q.front() + 1 &gt; k) &#123; q.pop_front(); &#125; // 当下标达到一定的位置 开始存储结果 if (i &gt;= k-1) &#123; res.push_back(nums[q.front()]); &#125; &#125; return res; &#125;&#125;;]]></content>
+  </entry>
+</search>
