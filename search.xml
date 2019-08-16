@@ -1,6 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[Split_GIF_Frames]]></title>
+    <url>%2F2019%2F08%2F16%2FSplit-GIF-Frames%2F</url>
+    <content type="text"><![CDATA[1234567891011import imageiofrom PIL import Image# 这一步解析之后，是一个list，里面存放着图片的array数据。frames = imageio.mimread(&apos;100.gif&apos;)for i, cont in enumerate(frames): # 将array数据转换成Image可以识别的数据 cont = Image.fromarray(cont) cont = cont.convert(&quot;RGB&quot;) cont.save(&quot;100_&#123;:03d&#125;.jpeg&quot;.format(i))]]></content>
+      <categories>
+        <category>CV</category>
+      </categories>
+      <tags>
+        <tag>Image imageio GIF</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[Resnet_Attention]]></title>
     <url>%2F2019%2F08%2F15%2FResnet-Attention%2F</url>
     <content type="text"><![CDATA[动机 相比与传统残差网络模型机制，残差注意力机制可以达到更细粒度的特征匹配 可以加强目标区域的影响力，抑制非目标区域的影响力 贡献 提出了一种注意力机制模块，大致有两部分组成 一部分是resnet中的部分网络结果，这成为主干分支， trunk branch 一部分是编码解码网络，主要进行了一次下采样和上采样， 这是掩码分支 对主干分支的输出和掩码分支的输出进行按位乘 注意：掩码分支的输出要进行sigmoid处理，使其变成0到1之间的数值，代表主干分支中特征图中该位置像素的影响力 注意：并不是完全的按位乘，那就太naive了，因为会导致梯度弥散问题。因此在这里借鉴了残差网络的和核心原理，使用（1+掩码分支）* 主干分支，如果某个像素位置的掩码很大，那么在这里就会被放大。如果此位置掩码很小，那就相当于保留了主干分支，至少可以保证主干分支的特征， 优秀]]></content>
