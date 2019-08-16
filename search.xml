@@ -34,5 +34,8 @@
     <title><![CDATA[leetcode239_SlidingWindowMaximum]]></title>
     <url>%2F2019%2F08%2F13%2Fleetcode239-SlidingWindowMaximum%2F</url>
     <content type="text"><![CDATA[code123456789101112131415161718192021222324252627class Solution &#123;public: vector&lt;int&gt; maxSlidingWindow(vector&lt;int&gt;&amp; nums, int k) &#123; deque&lt;int&gt; q; vector&lt;int&gt; res; for (int i = 0; i &lt; nums.size(); ++i) &#123; // 按照从大到小的顺序进行存储 在队列中的数字如果小于当前数字则移除 while (!q.empty() &amp;&amp; nums[q.back()] &lt; nums[i]) &#123; q.pop_back(); &#125; q.push_back(i); // 如果已经超过了k个 将最前边的数字移除 if (i - q.front() + 1 &gt; k) &#123; q.pop_front(); &#125; // 当下标达到一定的位置 开始存储结果 if (i &gt;= k-1) &#123; res.push_back(nums[q.front()]); &#125; &#125; return res; &#125;&#125;;]]></content>
+      <tags>
+        <tag>leetcode</tag>
+      </tags>
   </entry>
 </search>
