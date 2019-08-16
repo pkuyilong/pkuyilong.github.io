@@ -1,6 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[git_common_order]]></title>
+    <url>%2F2019%2F08%2F16%2Fgit-common-order%2F</url>
+    <content type="text"><![CDATA[123 git tag v0 git push --tags origin master 版本回退123git reset HEAD^git reset a5d385b]]></content>
+      <categories>
+        <category>Git</category>
+      </categories>
+  </entry>
+  <entry>
     <title><![CDATA[Split_GIF_Frames]]></title>
     <url>%2F2019%2F08%2F16%2FSplit-GIF-Frames%2F</url>
     <content type="text"><![CDATA[1234567891011import imageiofrom PIL import Image# 这一步解析之后，是一个list，里面存放着图片的array数据。frames = imageio.mimread(&apos;100.gif&apos;)for i, cont in enumerate(frames): # 将array数据转换成Image可以识别的数据 cont = Image.fromarray(cont) cont = cont.convert(&quot;RGB&quot;) cont.save(&quot;100_&#123;:03d&#125;.jpeg&quot;.format(i))]]></content>
