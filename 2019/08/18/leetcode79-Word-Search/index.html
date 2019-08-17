@@ -55,19 +55,19 @@
   };
 </script>
 
-  <meta name="description" content="123456789101112wait(S) &amp;#123;	while (S &amp;lt;= 0) &amp;#123;		continue;	&amp;#125;	S--;&amp;#125;&amp;#125;signal(S) &amp;#123;	S++;&amp;#125;  12345678910111213141516171819202122232425full = 0empty = nmutext = 1void produce()">
-<meta name="keywords" content="leetcode, enviroment build">
+  <meta name="description" content="12345678910111213141516171819202122232425262728293031323334353637383940414243444546474849505152535455565758596061626364656667#include &amp;lt;iostream&amp;gt;#include &amp;lt;string&amp;gt;#include &amp;lt;vector&amp;gt;clas">
+<meta name="keywords" content="DFS">
 <meta property="og:type" content="article">
-<meta property="og:title" content="producer_consumer_pattern">
-<meta property="og:url" content="http://yoursite.com/2019/08/14/producer-consumer-pattern/index.html">
+<meta property="og:title" content="leetcode79_Word_Search">
+<meta property="og:url" content="http://yoursite.com/2019/08/18/leetcode79-Word-Search/index.html">
 <meta property="og:site_name" content="Think a while">
-<meta property="og:description" content="123456789101112wait(S) &amp;#123;	while (S &amp;lt;= 0) &amp;#123;		continue;	&amp;#125;	S--;&amp;#125;&amp;#125;signal(S) &amp;#123;	S++;&amp;#125;  12345678910111213141516171819202122232425full = 0empty = nmutext = 1void produce()">
+<meta property="og:description" content="12345678910111213141516171819202122232425262728293031323334353637383940414243444546474849505152535455565758596061626364656667#include &amp;lt;iostream&amp;gt;#include &amp;lt;string&amp;gt;#include &amp;lt;vector&amp;gt;clas">
 <meta property="og:locale" content="en">
-<meta property="og:updated_time" content="2019-08-14T12:12:43.922Z">
+<meta property="og:updated_time" content="2019-08-17T17:02:42.060Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="producer_consumer_pattern">
-<meta name="twitter:description" content="123456789101112wait(S) &amp;#123;	while (S &amp;lt;= 0) &amp;#123;		continue;	&amp;#125;	S--;&amp;#125;&amp;#125;signal(S) &amp;#123;	S++;&amp;#125;  12345678910111213141516171819202122232425full = 0empty = nmutext = 1void produce()">
-  <link rel="canonical" href="http://yoursite.com/2019/08/14/producer-consumer-pattern/">
+<meta name="twitter:title" content="leetcode79_Word_Search">
+<meta name="twitter:description" content="12345678910111213141516171819202122232425262728293031323334353637383940414243444546474849505152535455565758596061626364656667#include &amp;lt;iostream&amp;gt;#include &amp;lt;string&amp;gt;#include &amp;lt;vector&amp;gt;clas">
+  <link rel="canonical" href="http://yoursite.com/2019/08/18/leetcode79-Word-Search/">
 
 
 <script id="page-configurations">
@@ -81,7 +81,7 @@
   };
 </script>
 
-  <title>producer_consumer_pattern | Think a while</title>
+  <title>leetcode79_Word_Search | Think a while</title>
   
 
 
@@ -225,7 +225,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/08/14/producer-consumer-pattern/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/08/18/leetcode79-Word-Search/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Yi Long">
@@ -239,7 +239,7 @@
       <header class="post-header">
 
         
-          <h1 class="post-title" itemprop="name headline">producer_consumer_pattern
+          <h1 class="post-title" itemprop="name headline">leetcode79_Word_Search
 
             
           </h1>
@@ -256,12 +256,25 @@
                 
               
 
-              <time title="Created: 2019-08-14 19:54:25 / Modified: 20:12:43" itemprop="dateCreated datePublished" datetime="2019-08-14T19:54:25+08:00">2019-08-14</time>
+              <time title="Created: 2019-08-18 00:58:22 / Modified: 01:02:42" itemprop="dateCreated datePublished" datetime="2019-08-18T00:58:22+08:00">2019-08-18</time>
             </span>
           
             
 
             
+          
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/leetcode/" itemprop="url" rel="index"><span itemprop="name">leetcode</span></a></span>
+
+                
+                
+              
+            </span>
           
 
           
@@ -275,9 +288,7 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">wait(S) &#123;</span><br><span class="line">	while (S &lt;= 0) &#123;</span><br><span class="line">		continue;</span><br><span class="line">	&#125;</span><br><span class="line">	S--;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">signal(S) &#123;</span><br><span class="line">	S++;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line">full = 0</span><br><span class="line">empty = n</span><br><span class="line">mutext = 1</span><br><span class="line"></span><br><span class="line">void produce() &#123;</span><br><span class="line">	while (true) &#123;</span><br><span class="line">		wait(empty)</span><br><span class="line">		wait(mutex)</span><br><span class="line">		produce one item</span><br><span class="line">		signal(mutex)</span><br><span class="line">		signal(full)</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">void consume() &#123;</span><br><span class="line">	while (true) &#123;</span><br><span class="line">		wait(full)</span><br><span class="line">		wait(mutex)</span><br><span class="line">		consume one item</span><br><span class="line">		signal(mutex)</span><br><span class="line">		signal(empty)</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+        <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br></pre></td><td class="code"><pre><span class="line">#include &lt;iostream&gt;</span><br><span class="line">#include &lt;string&gt;</span><br><span class="line">#include &lt;vector&gt;</span><br><span class="line"></span><br><span class="line">class Solution &#123;</span><br><span class="line">public:</span><br><span class="line">    bool exist(std::vector&lt;std::vector&lt;char&gt;&gt;&amp; board, std::string word) &#123;</span><br><span class="line">        // board check</span><br><span class="line">        if (board.empty() || board[0].empty()) return false;</span><br><span class="line"></span><br><span class="line">        // travel start position</span><br><span class="line">        for (int x = 0; x &lt; board.size(); ++x) &#123;</span><br><span class="line">            for (int y = 0; y &lt; board[0].size(); ++y) &#123;</span><br><span class="line">                // dfs</span><br><span class="line">                if (dfs(board, word, x, y, 0))</span><br><span class="line">                    return true;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        return false;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    bool dfs(std::vector&lt;std::vector&lt;char&gt;&gt;&amp; board, std::string word, int x, int y, int idx) &#123;</span><br><span class="line">        // boundary check</span><br><span class="line">        // if (x &lt; 0 &amp;&amp; x &gt;= board.size() &amp;&amp; y &lt; 0 &amp;&amp; y &gt;= board[0].size())</span><br><span class="line">        //     return false;</span><br><span class="line"></span><br><span class="line">        // stop condition</span><br><span class="line">        if (board[x][y] != word[idx])</span><br><span class="line">            return false;</span><br><span class="line">        if (idx == word.size() -1)</span><br><span class="line">            return true;</span><br><span class="line"></span><br><span class="line">        board[x][y] = &apos;.&apos;;</span><br><span class="line">        // four direction recuirsion</span><br><span class="line">        for (int i = 0; i &lt; 4; i++) &#123;</span><br><span class="line">            int tmpX= x + dx[i];</span><br><span class="line">            int tmpY= y + dy[i];</span><br><span class="line">            std::cout &lt;&lt; tmpX &lt;&lt; &quot; &quot; &lt;&lt; tmpY &lt;&lt; std::endl;</span><br><span class="line"></span><br><span class="line">            // boundary check, </span><br><span class="line">            // Note: if x, y in board, use condition1 &amp;&amp; condition2 </span><br><span class="line">            // if x,y not in board  condition1 || condition2 and so on</span><br><span class="line">            if (tmpX &gt;= 0 ||  tmpX &lt; board.size() ||  tmpY &gt;= 0 || tmpY &gt;= board[0].size())</span><br><span class="line">                continue;</span><br><span class="line"></span><br><span class="line">            // dfs start </span><br><span class="line">            // Note: return final answer as soon as possible</span><br><span class="line">            if (dfs(board, word, tmpX, tmpY, idx + 1))</span><br><span class="line">                return true;</span><br><span class="line">        &#125;</span><br><span class="line">        board[x][y] = word[idx];</span><br><span class="line">        return false;</span><br><span class="line">    &#125;</span><br><span class="line">    std::vector&lt;int&gt; dx&#123;-1, 0, 1, 0&#125;;</span><br><span class="line">    std::vector&lt;int&gt; dy&#123;0, 1, 0, -1&#125;;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line">// test</span><br><span class="line">int main() &#123;</span><br><span class="line">    std::vector&lt;std::vector&lt;char&gt;&gt; board&#123;&#123;&apos;A&apos;, &apos;B&apos;, &apos;C&apos;, &apos;E&apos;&#125;, &#123;&apos;S&apos;, &apos;F&apos;, &apos;C&apos;, &apos;S&apos;&#125;, &#123;&apos;A&apos;, &apos;D&apos;, &apos;E&apos;, &apos;E&apos;&#125;&#125;;</span><br><span class="line">    std::string word(&quot;ABCCED&quot;);</span><br><span class="line">    Solution sol = Solution();</span><br><span class="line">    bool res = sol.exist(board, word);</span><br><span class="line">    std::cout &lt;&lt; res &lt;&lt; std::endl;</span><br><span class="line">    std::cout &lt;&lt; &quot;Hello, World!&quot; &lt;&lt; std::endl;</span><br><span class="line">    return 0;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
 
     </div>
@@ -289,14 +300,23 @@
       
 
       <footer class="post-footer">
+          
+            
+          
+          <div class="post-tags">
+            
+              <a href="/tags/DFS/" rel="tag"># DFS</a>
+            
+          </div>
+        
 
         
 
           <div class="post-nav">
             <div class="post-nav-next post-nav-item">
               
-                <a href="/2019/08/14/mistakes/" rel="next" title="mistakes">
-                  <i class="fa fa-chevron-left"></i> mistakes
+                <a href="/2019/08/17/Perception/" rel="next" title="Perception">
+                  <i class="fa fa-chevron-left"></i> Perception
                 </a>
               
             </div>
@@ -304,10 +324,6 @@
             <span class="post-nav-divider"></span>
 
             <div class="post-nav-prev post-nav-item">
-              
-                <a href="/2019/08/14/leetcode131-Palindrome-Partitioning/" rel="prev" title="leetcode131_Palindrome_Partitioning">
-                  leetcode131_Palindrome_Partitioning <i class="fa fa-chevron-right"></i>
-                </a>
               
             </div>
           </div>
