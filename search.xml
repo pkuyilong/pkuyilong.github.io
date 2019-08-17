@@ -1,6 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[Perception]]></title>
+    <url>%2F2019%2F08%2F17%2FPerception%2F</url>
+    <content type="text"><![CDATA[有些事情一旦知道了开始和结束，就基本可以判断这个件事情的价值和意义。 很多东西对于深处底层的人来说都是不可见的，要摆脱所谓的底层，需要有很强的前瞻意识和分析问题的能力，看的越多，分析的跟深入，才有可能看到真相。]]></content>
+      <categories>
+        <category>Percepitons</category>
+      </categories>
+  </entry>
+  <entry>
     <title><![CDATA[reverse_string_recursion]]></title>
     <url>%2F2019%2F08%2F17%2Freverse-string-recursion%2F</url>
     <content type="text"><![CDATA[12345678910111213std::string dfs(std::string s, int i) &#123; if (i == 0) return s.substr(i, 1); // 因为涉及到字符串的拼接，所有需要将char类型转变成字符串类型 return s.substr(i, 1) + dfs(s, i-1);&#125;int main() &#123; std::string s(&quot;hello&quot;); Solution sol = Solution(); std::string res = sol.dfs(s, s.size()-1);&#125;]]></content>
