@@ -86,7 +86,7 @@
   <entry>
     <title><![CDATA[leetcode206_Reverse_Linked_List]]></title>
     <url>%2F2019%2F08%2F14%2Fleetcode206-Reverse-Linked-List%2F</url>
-    <content type="text"><![CDATA[123456789101112131415161718class Solution &#123;public: ListNode* reverseList(ListNode* head) &#123; if (head == nullptr || head-&gt;next == nullptr) &#123; return head; &#125; ListNode* prev = nullptr; ListNode* cur = head; while (cur) &#123; ListNode* nextNode = cur-&gt;next; cur-&gt;next = prev; prev = cur; cur = nextNode; &#125; return prev; &#125;&#125;;]]></content>
+    <content type="text"><![CDATA[Iteration version123456789101112131415161718class Solution &#123;public: ListNode* reverseList(ListNode* head) &#123; if (head == nullptr || head-&gt;next == nullptr) &#123; return head; &#125; ListNode* prev = nullptr; ListNode* cur = head; while (cur) &#123; ListNode* nextNode = cur-&gt;next; cur-&gt;next = prev; prev = cur; cur = nextNode; &#125; return prev; &#125;&#125;; Recursion version1234567891011121314151617181920212223242526272829class Solution &#123;public: ListNode* reverseList(ListNode* head) &#123; if (head == nullptr) return head; // dfs has retun val, but we dont care dfs(head); return newHead; &#125; ListNode* dfs(ListNode* cur) &#123; if (cur == nullptr) return cur; if (cur-&gt;next == nullptr) &#123; // perserve the ans and return newHead = cur; return cur; &#125; // dfs start ListNode* node = dfs(cur-&gt;next); node-&gt;next = cur; cur-&gt;next = nullptr; // return cur other than node return cur; &#125;private: ListNode* newHead;&#125;;]]></content>
       <categories>
         <category>leetcode</category>
       </categories>
