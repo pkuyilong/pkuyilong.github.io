@@ -14,7 +14,7 @@
   <entry>
     <title><![CDATA[git_common_order]]></title>
     <url>%2F2019%2F08%2F16%2Fgit-common-order%2F</url>
-    <content type="text"><![CDATA[123 git tag v0 git push --tags origin master 版本回退123git reset HEAD^git reset a5d385b]]></content>
+    <content type="text"><![CDATA[标签管理123 git tag v0 git push --tags origin master 版本回退123git reset HEAD^git reset a5d385b]]></content>
       <categories>
         <category>Git</category>
       </categories>
@@ -34,6 +34,9 @@
     <title><![CDATA[Resnet_Attention]]></title>
     <url>%2F2019%2F08%2F15%2FResnet-Attention%2F</url>
     <content type="text"><![CDATA[动机 相比与传统残差网络模型机制，残差注意力机制可以达到更细粒度的特征匹配 可以加强目标区域的影响力，抑制非目标区域的影响力 贡献 提出了一种注意力机制模块，大致有两部分组成 一部分是resnet中的部分网络结果，这成为主干分支， trunk branch 一部分是编码解码网络，主要进行了一次下采样和上采样， 这是掩码分支 对主干分支的输出和掩码分支的输出进行按位乘 注意：掩码分支的输出要进行sigmoid处理，使其变成0到1之间的数值，代表主干分支中特征图中该位置像素的影响力 注意：并不是完全的按位乘，那就太naive了，因为会导致梯度弥散问题。因此在这里借鉴了残差网络的和核心原理，使用（1+掩码分支）* 主干分支，如果某个像素位置的掩码很大，那么在这里就会被放大。如果此位置掩码很小，那就相当于保留了主干分支，至少可以保证主干分支的特征， 优秀]]></content>
+      <categories>
+        <category>DL</category>
+      </categories>
   </entry>
   <entry>
     <title><![CDATA[公平分汤问题]]></title>
@@ -44,6 +47,12 @@
     <title><![CDATA[leetcode131_Palindrome_Partitioning]]></title>
     <url>%2F2019%2F08%2F14%2Fleetcode131-Palindrome-Partitioning%2F</url>
     <content type="text"><![CDATA[123456789101112131415161718192021222324252627282930313233343536373839404142434445464748495051525354555657585960616263646566676869#include &lt;iostream&gt;#include &lt;vector&gt;#include &lt;string&gt;using namespace std;class Solution &#123;public: vector&lt;vector&lt;string&gt;&gt; partition(string s) &#123; if (s.size() == 0) &#123; return res; &#125; dfs(s); return res; &#125; void dfs(string s) &#123; // 终止条件 if (s.size() == 0) &#123; res.push_back(inter); return; &#125; // 这里截取字符串是可以取完整个字符串的，但是由于写遍历思维定式，以为是小于号，导致失败 for (int i = 1; i &lt;= s.size(); i++) &#123; string leftString = s.substr(0, i); string rightString = s.substr(i); if (isValid(leftString)) &#123; inter.push_back(leftString); dfs(rightString); inter.pop_back(); &#125; &#125; &#125; bool isValid(string s) &#123; unsigned int left = 0; unsigned int right = s.size()-1; while (left &lt; right) &#123; if (s[left] != s[right]) &#123; return false; &#125; else &#123; left++; right--; &#125; &#125; return true; &#125;private: vector&lt;vector&lt;string&gt;&gt; res; vector&lt;string&gt; inter;&#125;;int main() &#123; Solution sol = Solution(); string s(&quot;aab&quot;); vector&lt;vector&lt;string&gt;&gt; res = sol.partition(s); cout &lt;&lt; res.size() &lt;&lt; endl; cout &lt;&lt; &quot;res &quot; &lt;&lt; endl; for (auto item : res) &#123; for (auto x : item) &#123; cout &lt;&lt; x &lt;&lt; endl; &#125; cout &lt;&lt; endl; &#125; return 0;&#125;]]></content>
+      <categories>
+        <category>leetcode</category>
+      </categories>
+      <tags>
+        <tag>recursion, string</tag>
+      </tags>
   </entry>
   <entry>
     <title><![CDATA[producer_consumer_pattern]]></title>
@@ -51,14 +60,20 @@
     <content type="text"><![CDATA[123456789101112wait(S) &#123; while (S &lt;= 0) &#123; continue; &#125; S--;&#125;&#125;signal(S) &#123; S++;&#125; 12345678910111213141516171819202122232425full = 0empty = nmutext = 1void produce() &#123; while (true) &#123; wait(empty) wait(mutex) produce one item signal(mutex) signal(full) &#125;&#125;void consume() &#123; while (true) &#123; wait(full) wait(mutex) consume one item signal(mutex) signal(empty) &#125;&#125;]]></content>
   </entry>
   <entry>
-    <title><![CDATA[容易犯的错误]]></title>
+    <title><![CDATA[mistakes]]></title>
     <url>%2F2019%2F08%2F14%2Fmistakes%2F</url>
-    <content type="text"><![CDATA[C++ = and == 引用 for 循环的思维定式，不会根据具体情况考虑 Python python2 python3的除法问题]]></content>
+    <content type="text"><![CDATA[C++ = and == 引用 for 循环的思维定式，不会根据具体情况考虑 在bfs和dfs的时候，有时候会忘记更新值, 没有及时的push和pop Python python2 python3的除法问题]]></content>
+      <tags>
+        <tag>mistakes</tag>
+      </tags>
   </entry>
   <entry>
     <title><![CDATA[leetcode206_Reverse_Linked_List]]></title>
     <url>%2F2019%2F08%2F14%2Fleetcode206-Reverse-Linked-List%2F</url>
     <content type="text"><![CDATA[123456789101112131415161718class Solution &#123;public: ListNode* reverseList(ListNode* head) &#123; if (head == nullptr || head-&gt;next == nullptr) &#123; return head; &#125; ListNode* prev = nullptr; ListNode* cur = head; while (cur) &#123; ListNode* nextNode = cur-&gt;next; cur-&gt;next = prev; prev = cur; cur = nextNode; &#125; return prev; &#125;&#125;;]]></content>
+      <categories>
+        <category>leetcode</category>
+      </categories>
   </entry>
   <entry>
     <title><![CDATA[leetcode239_SlidingWindowMaximum]]></title>
