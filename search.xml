@@ -62,7 +62,7 @@
   <entry>
     <title><![CDATA[mistakes]]></title>
     <url>%2F2019%2F08%2F14%2Fmistakes%2F</url>
-    <content type="text"><![CDATA[C++ = and == 引用 for 循环的思维定式，不会根据具体情况考虑 在bfs和dfs的时候，有时候会忘记更新值, 没有及时的push和pop Python python2 python3的除法问题]]></content>
+    <content type="text"><![CDATA[C++ = and == 引用 for 循环的思维定式，不会根据具体情况考虑 在bfs和dfs的时候，有时候会忘记更新值, 没有及时的push和pop 递归函数，把函数写错了 Python python2 python3的除法问题]]></content>
       <tags>
         <tag>mistakes</tag>
       </tags>
