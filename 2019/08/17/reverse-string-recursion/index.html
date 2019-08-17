@@ -55,19 +55,19 @@
   };
 </script>
 
-  <meta name="description" content="code123456789101112131415161718192021222324252627class Solution &amp;#123;public:    vector&amp;lt;int&amp;gt; maxSlidingWindow(vector&amp;lt;int&amp;gt;&amp;amp; nums, int k) &amp;#123;        deque&amp;lt;int&amp;gt; q;        vector&amp;">
-<meta name="keywords" content="leetcode, enviroment build">
+  <meta name="description" content="12345678910111213std::string dfs(std::string s, int i) &amp;#123;    if (i == 0)         return s.substr(i, 1);    // 因为涉及到字符串的拼接，所有需要将char类型转变成字符串类型    return s.substr(i, 1) + dfs(s, i-1);&amp;#125;int main(">
+<meta name="keywords" content="recursion">
 <meta property="og:type" content="article">
-<meta property="og:title" content="leetcode239_SlidingWindowMaximum">
-<meta property="og:url" content="http://yoursite.com/2019/08/13/leetcode239-SlidingWindowMaximum/index.html">
+<meta property="og:title" content="reverse_string_recursion">
+<meta property="og:url" content="http://yoursite.com/2019/08/17/reverse-string-recursion/index.html">
 <meta property="og:site_name" content="Think a while">
-<meta property="og:description" content="code123456789101112131415161718192021222324252627class Solution &amp;#123;public:    vector&amp;lt;int&amp;gt; maxSlidingWindow(vector&amp;lt;int&amp;gt;&amp;amp; nums, int k) &amp;#123;        deque&amp;lt;int&amp;gt; q;        vector&amp;">
+<meta property="og:description" content="12345678910111213std::string dfs(std::string s, int i) &amp;#123;    if (i == 0)         return s.substr(i, 1);    // 因为涉及到字符串的拼接，所有需要将char类型转变成字符串类型    return s.substr(i, 1) + dfs(s, i-1);&amp;#125;int main(">
 <meta property="og:locale" content="en">
-<meta property="og:updated_time" content="2019-08-16T01:55:58.676Z">
+<meta property="og:updated_time" content="2019-08-17T07:41:36.163Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="leetcode239_SlidingWindowMaximum">
-<meta name="twitter:description" content="code123456789101112131415161718192021222324252627class Solution &amp;#123;public:    vector&amp;lt;int&amp;gt; maxSlidingWindow(vector&amp;lt;int&amp;gt;&amp;amp; nums, int k) &amp;#123;        deque&amp;lt;int&amp;gt; q;        vector&amp;">
-  <link rel="canonical" href="http://yoursite.com/2019/08/13/leetcode239-SlidingWindowMaximum/">
+<meta name="twitter:title" content="reverse_string_recursion">
+<meta name="twitter:description" content="12345678910111213std::string dfs(std::string s, int i) &amp;#123;    if (i == 0)         return s.substr(i, 1);    // 因为涉及到字符串的拼接，所有需要将char类型转变成字符串类型    return s.substr(i, 1) + dfs(s, i-1);&amp;#125;int main(">
+  <link rel="canonical" href="http://yoursite.com/2019/08/17/reverse-string-recursion/">
 
 
 <script id="page-configurations">
@@ -81,7 +81,7 @@
   };
 </script>
 
-  <title>leetcode239_SlidingWindowMaximum | Think a while</title>
+  <title>reverse_string_recursion | Think a while</title>
   
 
 
@@ -225,7 +225,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/08/13/leetcode239-SlidingWindowMaximum/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/08/17/reverse-string-recursion/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Yi Long">
@@ -239,7 +239,7 @@
       <header class="post-header">
 
         
-          <h1 class="post-title" itemprop="name headline">leetcode239_SlidingWindowMaximum
+          <h1 class="post-title" itemprop="name headline">reverse_string_recursion
 
             
           </h1>
@@ -256,33 +256,12 @@
                 
               
 
-              <time title="Created: 2019-08-13 11:46:20" itemprop="dateCreated datePublished" datetime="2019-08-13T11:46:20+08:00">2019-08-13</time>
+              <time title="Created: 2019-08-17 15:39:02 / Modified: 15:41:36" itemprop="dateCreated datePublished" datetime="2019-08-17T15:39:02+08:00">2019-08-17</time>
             </span>
           
             
 
             
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2019-08-16 09:55:58" itemprop="dateModified" datetime="2019-08-16T09:55:58+08:00">2019-08-16</time>
-              </span>
-            
-          
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">In</span>
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/leetcode/" itemprop="url" rel="index"><span itemprop="name">leetcode</span></a></span>
-
-                
-                
-              
-            </span>
           
 
           
@@ -296,7 +275,7 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <h2 id="code"><a href="#code" class="headerlink" title="code"></a>code</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line">class Solution &#123;</span><br><span class="line">public:</span><br><span class="line">    vector&lt;int&gt; maxSlidingWindow(vector&lt;int&gt;&amp; nums, int k) &#123;</span><br><span class="line">        deque&lt;int&gt; q;</span><br><span class="line">        vector&lt;int&gt; res;</span><br><span class="line"></span><br><span class="line">        for (int i = 0; i &lt; nums.size(); ++i) &#123;</span><br><span class="line">	   // 按照从大到小的顺序进行存储 在队列中的数字如果小于当前数字则移除</span><br><span class="line">           while (!q.empty() &amp;&amp; nums[q.back()] &lt; nums[i]) &#123;</span><br><span class="line">               q.pop_back();</span><br><span class="line">           &#125;</span><br><span class="line"></span><br><span class="line">           q.push_back(i);</span><br><span class="line"></span><br><span class="line">           // 如果已经超过了k个 将最前边的数字移除</span><br><span class="line">           if (i - q.front() + 1 &gt; k) &#123;</span><br><span class="line">               q.pop_front();</span><br><span class="line">           &#125;</span><br><span class="line"></span><br><span class="line">           // 当下标达到一定的位置 开始存储结果</span><br><span class="line">           if (i &gt;= k-1) &#123;</span><br><span class="line">               res.push_back(nums[q.front()]);</span><br><span class="line">           &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        return res;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+        <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">std::string dfs(std::string s, int i) &#123;</span><br><span class="line">    if (i == 0) </span><br><span class="line">        return s.substr(i, 1);</span><br><span class="line">    // 因为涉及到字符串的拼接，所有需要将char类型转变成字符串类型</span><br><span class="line">    return s.substr(i, 1) + dfs(s, i-1);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">int main() &#123;</span><br><span class="line">    std::string s(&quot;hello&quot;);</span><br><span class="line">    Solution sol = Solution();</span><br><span class="line">    std::string res = sol.dfs(s, s.size()-1);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
 
     </div>
@@ -308,21 +287,30 @@
       
 
       <footer class="post-footer">
+          
+            
+          
+          <div class="post-tags">
+            
+              <a href="/tags/recursion/" rel="tag"># recursion</a>
+            
+          </div>
+        
 
         
 
           <div class="post-nav">
             <div class="post-nav-next post-nav-item">
               
+                <a href="/2019/08/17/leetcode127-Word-Ladder/" rel="next" title="leetcode127_Word_Ladder">
+                  <i class="fa fa-chevron-left"></i> leetcode127_Word_Ladder
+                </a>
+              
             </div>
 
             <span class="post-nav-divider"></span>
 
             <div class="post-nav-prev post-nav-item">
-              
-                <a href="/2019/08/14/leetcode206-Reverse-Linked-List/" rel="prev" title="leetcode206_Reverse_Linked_List">
-                  leetcode206_Reverse_Linked_List <i class="fa fa-chevron-right"></i>
-                </a>
               
             </div>
           </div>
@@ -354,17 +342,8 @@
 
   <aside id="sidebar" class="sidebar">
     <div class="sidebar-inner">
-        <ul class="sidebar-nav motion-element">
-          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
-            Table of Contents
-          </li>
-          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
-            Overview
-          </li>
-        </ul>
-      
 
-      <div class="site-overview-wrap sidebar-panel">
+      <div class="site-overview-wrap sidebar-panel sidebar-panel-active">
         <div class="site-overview">
 
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -435,23 +414,6 @@
 
         </div>
       </div>
-      <!--noindex-->
-        <div class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
-          <div class="post-toc">
-
-            
-            
-            
-            
-
-            
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#code"><span class="nav-number">1.</span> <span class="nav-text">code</span></a></li></ol></div>
-            
-
-          </div>
-        </div>
-      <!--/noindex-->
-      
 
     </div>
   </aside>

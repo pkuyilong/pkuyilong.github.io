@@ -1,6 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[reverse_string_recursion]]></title>
+    <url>%2F2019%2F08%2F17%2Freverse-string-recursion%2F</url>
+    <content type="text"><![CDATA[12345678910111213std::string dfs(std::string s, int i) &#123; if (i == 0) return s.substr(i, 1); // 因为涉及到字符串的拼接，所有需要将char类型转变成字符串类型 return s.substr(i, 1) + dfs(s, i-1);&#125;int main() &#123; std::string s(&quot;hello&quot;); Solution sol = Solution(); std::string res = sol.dfs(s, s.size()-1);&#125;]]></content>
+      <tags>
+        <tag>recursion</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[leetcode127_Word_Ladder]]></title>
     <url>%2F2019%2F08%2F17%2Fleetcode127-Word-Ladder%2F</url>
     <content type="text"><![CDATA[思路对于求解最短、最优的问题，可以使用bfs来做。 1234567891011121314151617181920212223242526272829303132333435363738class Solution &#123;public: int ladderLength(std::string beginWord, std::string endWord, std::vector&lt;std::string&gt;&amp; wordList) &#123; // preprocess std::unordered_set&lt;std::string&gt; wordSet(wordList.begin(), wordList.end()); if (wordSet.count(endWord) == 0) return 0; std::queue&lt;std::pair&lt;std::string, int&gt;&gt; que; wordSet.insert(endWord); wordSet.erase(beginWord); // bfs start que.push(std::make_pair(beginWord ,1)); while (!que.empty()) &#123; std::pair&lt;std::string, int&gt; tmp = que.front(); que.pop(); std::string word = tmp.first; unsigned int val = tmp.second; std::string tmpWord = word; // find optimal and return if (word == endWord) return val; // find next words and put into queue for (int i = 0; i &lt; word.size(); ++i) &#123; tmpWord = word; for (int j = 0; j &lt; 26; j++) &#123; tmpWord[i] = &apos;a&apos; + j; if (wordSet.count(tmpWord)) &#123; que.push(std::make_pair(tmpWord, val + 1)); // remove the element pushed to queue wordSet.erase(tmpWord); &#125; &#125; &#125; &#125; return 0; &#125;&#125;; 反思 一开始我使用了dfs来做 使用了一个used来记录使用过的结果，但是在代码中没有使用 要从vector中找某个值，可以使用std::find，但是会比较麻烦，可以直接将vector转换成set，查找用count就行]]></content>

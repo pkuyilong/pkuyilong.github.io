@@ -55,33 +55,29 @@
   };
 </script>
 
-  <meta name="description" content="code123456789101112131415161718192021222324252627class Solution &amp;#123;public:    vector&amp;lt;int&amp;gt; maxSlidingWindow(vector&amp;lt;int&amp;gt;&amp;amp; nums, int k) &amp;#123;        deque&amp;lt;int&amp;gt; q;        vector&amp;">
-<meta name="keywords" content="leetcode, enviroment build">
-<meta property="og:type" content="article">
-<meta property="og:title" content="leetcode239_SlidingWindowMaximum">
-<meta property="og:url" content="http://yoursite.com/2019/08/13/leetcode239-SlidingWindowMaximum/index.html">
+  <meta name="keywords" content="leetcode, enviroment build">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Think a while">
+<meta property="og:url" content="http://yoursite.com/page/2/index.html">
 <meta property="og:site_name" content="Think a while">
-<meta property="og:description" content="code123456789101112131415161718192021222324252627class Solution &amp;#123;public:    vector&amp;lt;int&amp;gt; maxSlidingWindow(vector&amp;lt;int&amp;gt;&amp;amp; nums, int k) &amp;#123;        deque&amp;lt;int&amp;gt; q;        vector&amp;">
 <meta property="og:locale" content="en">
-<meta property="og:updated_time" content="2019-08-16T01:55:58.676Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="leetcode239_SlidingWindowMaximum">
-<meta name="twitter:description" content="code123456789101112131415161718192021222324252627class Solution &amp;#123;public:    vector&amp;lt;int&amp;gt; maxSlidingWindow(vector&amp;lt;int&amp;gt;&amp;amp; nums, int k) &amp;#123;        deque&amp;lt;int&amp;gt; q;        vector&amp;">
-  <link rel="canonical" href="http://yoursite.com/2019/08/13/leetcode239-SlidingWindowMaximum/">
+<meta name="twitter:title" content="Think a while">
+  <link rel="canonical" href="http://yoursite.com/page/2/">
 
 
 <script id="page-configurations">
   // https://hexo.io/docs/variables.html
   CONFIG.page = {
     sidebar: "",
-    isHome: false,
-    isPost: true,
+    isHome: true,
+    isPost: false,
     isPage: false,
     isArchive: false
   };
 </script>
 
-  <title>leetcode239_SlidingWindowMaximum | Think a while</title>
+  <title>Think a while</title>
   
 
 
@@ -214,11 +210,10 @@
     <main id="main" class="main">
       <div class="main-inner">
         <div class="content-wrap">
-          <div id="content" class="content page-post-detail">
+          <div id="content" class="content page-home">
             
-
-  <div id="posts" class="posts-expand">
-    
+  <section id="posts" class="posts-expand">
+      
 
   <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
   
@@ -239,8 +234,9 @@
       <header class="post-header">
 
         
-          <h1 class="post-title" itemprop="name headline">leetcode239_SlidingWindowMaximum
-
+          <h1 class="post-title" itemprop="name headline">
+              
+              <a href="/2019/08/13/leetcode239-SlidingWindowMaximum/" class="post-title-link" itemprop="url">leetcode239_SlidingWindowMaximum</a>
             
           </h1>
         
@@ -296,46 +292,35 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <h2 id="code"><a href="#code" class="headerlink" title="code"></a>code</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line">class Solution &#123;</span><br><span class="line">public:</span><br><span class="line">    vector&lt;int&gt; maxSlidingWindow(vector&lt;int&gt;&amp; nums, int k) &#123;</span><br><span class="line">        deque&lt;int&gt; q;</span><br><span class="line">        vector&lt;int&gt; res;</span><br><span class="line"></span><br><span class="line">        for (int i = 0; i &lt; nums.size(); ++i) &#123;</span><br><span class="line">	   // 按照从大到小的顺序进行存储 在队列中的数字如果小于当前数字则移除</span><br><span class="line">           while (!q.empty() &amp;&amp; nums[q.back()] &lt; nums[i]) &#123;</span><br><span class="line">               q.pop_back();</span><br><span class="line">           &#125;</span><br><span class="line"></span><br><span class="line">           q.push_back(i);</span><br><span class="line"></span><br><span class="line">           // 如果已经超过了k个 将最前边的数字移除</span><br><span class="line">           if (i - q.front() + 1 &gt; k) &#123;</span><br><span class="line">               q.pop_front();</span><br><span class="line">           &#125;</span><br><span class="line"></span><br><span class="line">           // 当下标达到一定的位置 开始存储结果</span><br><span class="line">           if (i &gt;= k-1) &#123;</span><br><span class="line">               res.push_back(nums[q.front()]);</span><br><span class="line">           &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        return res;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+          
+            <h2 id="code"><a href="#code" class="headerlink" title="code"></a>code</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line">class Solution &#123;</span><br><span class="line">public:</span><br><span class="line">    vector&lt;int&gt; maxSlidingWindow(vector&lt;int&gt;&amp; nums, int k) &#123;</span><br><span class="line">        deque&lt;int&gt; q;</span><br><span class="line">        vector&lt;int&gt; res;</span><br><span class="line"></span><br><span class="line">        for (int i = 0; i &lt; nums.size(); ++i) &#123;</span><br><span class="line">	   // 按照从大到小的顺序进行存储 在队列中的数字如果小于当前数字则移除</span><br><span class="line">           while (!q.empty() &amp;&amp; nums[q.back()] &lt; nums[i]) &#123;</span><br><span class="line">               q.pop_back();</span><br><span class="line">           &#125;</span><br><span class="line"></span><br><span class="line">           q.push_back(i);</span><br><span class="line"></span><br><span class="line">           // 如果已经超过了k个 将最前边的数字移除</span><br><span class="line">           if (i - q.front() + 1 &gt; k) &#123;</span><br><span class="line">               q.pop_front();</span><br><span class="line">           &#125;</span><br><span class="line"></span><br><span class="line">           // 当下标达到一定的位置 开始存储结果</span><br><span class="line">           if (i &gt;= k-1) &#123;</span><br><span class="line">               res.push_back(nums[q.front()]);</span><br><span class="line">           &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        return res;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
 
 
+          
+        
+      
     </div>
 
     
     
     
-        
-      
-
       <footer class="post-footer">
-
-        
-
-          <div class="post-nav">
-            <div class="post-nav-next post-nav-item">
-              
-            </div>
-
-            <span class="post-nav-divider"></span>
-
-            <div class="post-nav-prev post-nav-item">
-              
-                <a href="/2019/08/14/leetcode206-Reverse-Linked-List/" rel="prev" title="leetcode206_Reverse_Linked_List">
-                  leetcode206_Reverse_Linked_List <i class="fa fa-chevron-right"></i>
-                </a>
-              
-            </div>
-          </div>
+          <div class="post-eof"></div>
         
       </footer>
-    
   </div>
   
   
   
   </article>
 
-  </div>
+    
+  </section>
+
+  
+  <nav class="pagination">
+    <a class="extend prev" rel="prev" href="/"><i class="fa fa-angle-left" aria-label="Previous page"></i></a><a class="page-number" href="/">1</a><span class="page-number current">2</span>
+  </nav>
 
 
           </div>
@@ -354,17 +339,8 @@
 
   <aside id="sidebar" class="sidebar">
     <div class="sidebar-inner">
-        <ul class="sidebar-nav motion-element">
-          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
-            Table of Contents
-          </li>
-          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
-            Overview
-          </li>
-        </ul>
-      
 
-      <div class="site-overview-wrap sidebar-panel">
+      <div class="site-overview-wrap sidebar-panel sidebar-panel-active">
         <div class="site-overview">
 
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -435,23 +411,6 @@
 
         </div>
       </div>
-      <!--noindex-->
-        <div class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
-          <div class="post-toc">
-
-            
-            
-            
-            
-
-            
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#code"><span class="nav-number">1.</span> <span class="nav-text">code</span></a></li></ol></div>
-            
-
-          </div>
-        </div>
-      <!--/noindex-->
-      
 
     </div>
   </aside>
@@ -549,9 +508,5 @@
 
 
   
-  <script src="/js/scrollspy.js?v=7.3.0"></script>
-<script src="/js/post-details.js?v=7.3.0"></script>
-
-
 </body>
 </html>
