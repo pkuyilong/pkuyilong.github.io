@@ -220,6 +220,106 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/08/17/leetcode127-Word-Ladder/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Yi Long">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Think a while">
+    </span>
+      <header class="post-header">
+
+        
+          <h1 class="post-title" itemprop="name headline">
+              
+              <a href="/2019/08/17/leetcode127-Word-Ladder/" class="post-title-link" itemprop="url">leetcode127_Word_Ladder</a>
+            
+          </h1>
+        
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+
+              
+                
+              
+
+              <time title="Created: 2019-08-17 14:10:30 / Modified: 14:20:04" itemprop="dateCreated datePublished" datetime="2019-08-17T14:10:30+08:00">2019-08-17</time>
+            </span>
+          
+            
+
+            
+          
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/leetcode/" itemprop="url" rel="index"><span itemprop="name">leetcode</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          
+            <h2 id="思路"><a href="#思路" class="headerlink" title="思路"></a>思路</h2><p>对于求解最短、最优的问题，可以使用bfs来做。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br></pre></td><td class="code"><pre><span class="line">class Solution &#123;</span><br><span class="line">public:</span><br><span class="line">    int ladderLength(std::string beginWord, std::string endWord, std::vector&lt;std::string&gt;&amp; wordList) &#123;</span><br><span class="line">	// preprocess</span><br><span class="line">        std::unordered_set&lt;std::string&gt; wordSet(wordList.begin(), wordList.end());</span><br><span class="line">        if (wordSet.count(endWord) == 0) return 0;</span><br><span class="line">        std::queue&lt;std::pair&lt;std::string, int&gt;&gt; que;</span><br><span class="line">        wordSet.insert(endWord);</span><br><span class="line">        wordSet.erase(beginWord);</span><br><span class="line">	</span><br><span class="line">	// bfs start</span><br><span class="line">        que.push(std::make_pair(beginWord ,1));</span><br><span class="line">        while (!que.empty()) &#123;</span><br><span class="line">            std::pair&lt;std::string, int&gt; tmp = que.front(); que.pop();</span><br><span class="line">            std::string word = tmp.first;</span><br><span class="line">            unsigned int val = tmp.second;</span><br><span class="line">            std::string tmpWord = word;</span><br><span class="line"></span><br><span class="line">            // find optimal and return </span><br><span class="line">            if (word == endWord) return val;</span><br><span class="line"></span><br><span class="line">            // find next words and put into queue</span><br><span class="line">            for (int i = 0; i &lt; word.size(); ++i) &#123;</span><br><span class="line">                tmpWord = word;</span><br><span class="line">                for (int j = 0; j &lt; 26; j++) &#123;</span><br><span class="line">                    tmpWord[i] = &apos;a&apos; + j;</span><br><span class="line">                    if (wordSet.count(tmpWord)) &#123;</span><br><span class="line">                        que.push(std::make_pair(tmpWord, val + 1));</span><br><span class="line"></span><br><span class="line">                        // remove the element pushed to queue</span><br><span class="line">                        wordSet.erase(tmpWord);</span><br><span class="line">                    &#125;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        return 0;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+
+<h2 id="反思"><a href="#反思" class="headerlink" title="反思"></a>反思</h2><ul>
+<li>一开始我使用了dfs来做</li>
+<li>使用了一个used来记录使用过的结果，但是在代码中没有使用</li>
+<li>要从vector中找某个值，可以使用std::find，但是会比较麻烦，可以直接将vector转换成set，查找用count就行</li>
+</ul>
+
+          
+        
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+          <div class="post-eof"></div>
+        
+      </footer>
+  </div>
+  
+  
+  
+  </article>
+
+    
+      
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/08/16/git-common-order/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1072,7 +1172,7 @@
         
           <a href="/archives/">
         
-          <span class="site-state-item-count">9</span>
+          <span class="site-state-item-count">10</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
@@ -1110,7 +1210,9 @@
         
           
         
-        <span class="site-state-item-count">1</span>
+          
+        
+        <span class="site-state-item-count">2</span>
         <span class="site-state-item-name">tags</span>
         </a>
       </div>
