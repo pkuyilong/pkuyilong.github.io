@@ -1,6 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[leetcode72_Subsets]]></title>
+    <url>%2F2019%2F08%2F18%2Fleetcode72-Subsets%2F</url>
+    <content type="text"><![CDATA[Condition Given a set of distinct integers, nums, return all possible subsets (the power set). Note: The solution set must not contain duplicate subsets. Code123456789101112131415161718192021222324252627282930313233343536class Solution &#123;public: std::vector&lt;std::vector&lt;int&gt;&gt; subsets(std::vector&lt;int&gt;&amp; nums) &#123; // nums check if (nums.empty()) return res; // start pos // Note: count represents size of tmp result for (int count = 0; count &lt;= nums.size(); ++count) &#123; dfs(nums, count, 0); &#125; return res; &#125; void dfs(std::vector&lt;int&gt;&amp; nums, int count, int idx) &#123; // stop conditions if (count == tmp.size()) &#123; res.push_back(tmp); return; &#125; // dfs and context // traverse remaining nums after idx for (int i = idx; i &lt; nums.size(); i++) &#123; // Note: nums[i] instead of nums[idx] tmp.push_back(nums[i]); dfs(nums, count, i+1); tmp.pop_back(); &#125; &#125;private: std::vector&lt;std::vector&lt;int&gt;&gt; res; std::vector&lt;int&gt; tmp;&#125;; Summary Note: index when traversing remaining element for loop condition is Changing, not for (int i= 0; i &lt; nums.size(); ++i) always]]></content>
+      <categories>
+        <category>leetcode</category>
+      </categories>
+      <tags>
+        <tag>DFS</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[leetcode46_Permutations]]></title>
     <url>%2F2019%2F08%2F18%2Fleetcode46-Permutations%2F</url>
     <content type="text"><![CDATA[Contidion Given a collection of distinct integers, return all possible permutations. Code1234567891011121314151617181920212223242526272829303132333435363738class Solution &#123;public: std::vector&lt;std::vector&lt;int&gt;&gt; permute(std::vector&lt;int&gt; &amp;nums) &#123; if (nums.empty()) return res; dfs(nums, 0); return res; &#125; void dfs(std::vector&lt;int&gt; &amp;nums, int idx) &#123; // stop condition if (idx == nums.size()) &#123; res.push_back(tmp); return; &#125; // check each num of nums for (int i = 0; i &lt; nums.size(); i++) &#123; if (numSet.count(nums[i]) == 0) &#123; // process nums[i] numSet.insert(nums[i]); tmp.push_back(nums[i]); // dfs dfs(nums, idx+1); // restore context tmp.pop_back(); numSet.erase(nums[i]); &#125; &#125; &#125;private: std::unordered_set&lt;int&gt; numSet; std::vector&lt;int&gt; tmp; std::vector&lt;std::vector&lt;int&gt;&gt; res;&#125;; Summary Note: Change context and Restore context if nums has duplicated elemement, it’s not a good idea to use unordered_set, use vector instead to mark which element is used]]></content>
