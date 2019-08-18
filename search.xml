@@ -1,6 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[leetcode72_Subsets_bit]]></title>
+    <url>%2F2019%2F08%2F18%2Fleetcode72-Subsets-bit%2F</url>
+    <content type="text"><![CDATA[Example1234567890 0 0 == []0 0 1 == [1]0 1 0 == [2]0 1 1 == [1, 2]...1 1 0 == [2, 3]...1 1 1 == [1, 2, 3] Code12345678910111213141516171819202122class Solution &#123;public: std::vector&lt;std::vector&lt;int&gt;&gt; subsets(std::vector&lt;int&gt;&amp; nums) &#123; if (nums.empty()) return res; // 1 &lt;&lt; nums.size() == 2^nums.size() means number of all subset for (int i = 0; i &lt; 1&lt;&lt;nums.size(); ++i) &#123; tmp.clear(); // use bit enumerate candidate num in nums for (int j = 0; j &lt; nums.size(); ++j) &#123; if (i &gt;&gt; j &amp; 1) &#123; tmp.push_back(nums[j]); &#125; &#125; res.push_back(tmp); &#125; return res; &#125;public: std::vector&lt;int&gt; tmp; std::vector&lt;std::vector&lt;int&gt;&gt; res;&#125;; Summary: bit operation is more efficient]]></content>
+      <categories>
+        <category>leetcode</category>
+      </categories>
+      <tags>
+        <tag>bit</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[leetcode72_Subsets]]></title>
     <url>%2F2019%2F08%2F18%2Fleetcode72-Subsets%2F</url>
     <content type="text"><![CDATA[Condition Given a set of distinct integers, nums, return all possible subsets (the power set). Note: The solution set must not contain duplicate subsets. Code123456789101112131415161718192021222324252627282930313233343536class Solution &#123;public: std::vector&lt;std::vector&lt;int&gt;&gt; subsets(std::vector&lt;int&gt;&amp; nums) &#123; // nums check if (nums.empty()) return res; // start pos // Note: count represents size of tmp result for (int count = 0; count &lt;= nums.size(); ++count) &#123; dfs(nums, count, 0); &#125; return res; &#125; void dfs(std::vector&lt;int&gt;&amp; nums, int count, int idx) &#123; // stop conditions if (count == tmp.size()) &#123; res.push_back(tmp); return; &#125; // dfs and context // traverse remaining nums after idx for (int i = idx; i &lt; nums.size(); i++) &#123; // Note: nums[i] instead of nums[idx] tmp.push_back(nums[i]); dfs(nums, count, i+1); tmp.pop_back(); &#125; &#125;private: std::vector&lt;std::vector&lt;int&gt;&gt; res; std::vector&lt;int&gt; tmp;&#125;; Summary Note: index when traversing remaining element for loop condition is Changing, not for (int i= 0; i &lt; nums.size(); ++i) always]]></content>
