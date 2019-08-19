@@ -55,19 +55,19 @@
   };
 </script>
 
-  <meta name="description" content="Condition Given a set of distinct integers, nums, return all possible subsets (the power set). Note: The solution set must not contain duplicate subsets.  Code12345678910111213141516171819202122232425">
+  <meta name="description" content="Condition Given a set of distinct integers, nums, return all possible subsets (the power set). Note: The solution set must not contain duplicate subsets.  Code11234567891011121314151617181920212223242">
 <meta name="keywords" content="DFS">
 <meta property="og:type" content="article">
-<meta property="og:title" content="leetcode72_Subsets">
-<meta property="og:url" content="http://yoursite.com/2019/08/18/leetcode72-Subsets/index.html">
+<meta property="og:title" content="leetcode78_Subsets">
+<meta property="og:url" content="http://yoursite.com/2019/08/18/leetcode78_Subsets/index.html">
 <meta property="og:site_name" content="Act in a steady way">
-<meta property="og:description" content="Condition Given a set of distinct integers, nums, return all possible subsets (the power set). Note: The solution set must not contain duplicate subsets.  Code12345678910111213141516171819202122232425">
+<meta property="og:description" content="Condition Given a set of distinct integers, nums, return all possible subsets (the power set). Note: The solution set must not contain duplicate subsets.  Code11234567891011121314151617181920212223242">
 <meta property="og:locale" content="en">
-<meta property="og:updated_time" content="2019-08-18T03:22:13.462Z">
+<meta property="og:updated_time" content="2019-08-19T05:10:01.423Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="leetcode72_Subsets">
-<meta name="twitter:description" content="Condition Given a set of distinct integers, nums, return all possible subsets (the power set). Note: The solution set must not contain duplicate subsets.  Code12345678910111213141516171819202122232425">
-  <link rel="canonical" href="http://yoursite.com/2019/08/18/leetcode72-Subsets/">
+<meta name="twitter:title" content="leetcode78_Subsets">
+<meta name="twitter:description" content="Condition Given a set of distinct integers, nums, return all possible subsets (the power set). Note: The solution set must not contain duplicate subsets.  Code11234567891011121314151617181920212223242">
+  <link rel="canonical" href="http://yoursite.com/2019/08/18/leetcode78_Subsets/">
 
 
 <script id="page-configurations">
@@ -81,7 +81,7 @@
   };
 </script>
 
-  <title>leetcode72_Subsets | Act in a steady way</title>
+  <title>leetcode78_Subsets | Act in a steady way</title>
   
 
 
@@ -225,7 +225,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/08/18/leetcode72-Subsets/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/08/18/leetcode78_Subsets/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Yi Long">
@@ -239,7 +239,7 @@
       <header class="post-header">
 
         
-          <h1 class="post-title" itemprop="name headline">leetcode72_Subsets
+          <h1 class="post-title" itemprop="name headline">leetcode78_Subsets
 
             
           </h1>
@@ -256,11 +256,19 @@
                 
               
 
-              <time title="Created: 2019-08-18 11:16:26 / Modified: 11:22:13" itemprop="dateCreated datePublished" datetime="2019-08-18T11:16:26+08:00">2019-08-18</time>
+              <time title="Created: 2019-08-18 11:16:26" itemprop="dateCreated datePublished" datetime="2019-08-18T11:16:26+08:00">2019-08-18</time>
             </span>
           
             
 
+            
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2019-08-19 13:10:01" itemprop="dateModified" datetime="2019-08-19T13:10:01+08:00">2019-08-19</time>
+              </span>
             
           
             <span class="post-meta-item">
@@ -292,11 +300,16 @@
 <li>Given a set of distinct integers, nums, return all possible subsets (the power set).</li>
 <li>Note: The solution set must not contain duplicate subsets.</li>
 </ul>
-<h3 id="Code"><a href="#Code" class="headerlink" title="Code"></a>Code</h3><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="built_in">std</span>::<span class="built_in">vector</span>&lt;<span class="built_in">std</span>::<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;&gt; subsets(<span class="built_in">std</span>::<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;&amp; nums) &#123;</span><br><span class="line">        <span class="comment">// nums check</span></span><br><span class="line">        <span class="keyword">if</span> (nums.empty()) <span class="keyword">return</span> res;</span><br><span class="line"></span><br><span class="line">        <span class="comment">// start pos</span></span><br><span class="line">        <span class="comment">// Note: count represents size of tmp result</span></span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> count = <span class="number">0</span>; count &lt;= nums.size(); ++count) &#123;</span><br><span class="line">            dfs(nums, count, <span class="number">0</span>);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> res;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">void</span> <span class="title">dfs</span><span class="params">(<span class="built_in">std</span>::<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;&amp; nums, <span class="keyword">int</span> count, <span class="keyword">int</span> idx)</span> </span>&#123;</span><br><span class="line">        <span class="comment">// stop conditions</span></span><br><span class="line">        <span class="keyword">if</span> (count == tmp.size()) &#123;</span><br><span class="line">            res.push_back(tmp);</span><br><span class="line">            <span class="keyword">return</span>;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="comment">// dfs and context</span></span><br><span class="line">        <span class="comment">// traverse remaining nums after idx</span></span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = idx; i &lt; nums.size(); i++) &#123;</span><br><span class="line">            <span class="comment">// Note: nums[i] instead of nums[idx]</span></span><br><span class="line">            tmp.push_back(nums[i]);</span><br><span class="line">            dfs(nums, count, i+<span class="number">1</span>);</span><br><span class="line">            tmp.pop_back();</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">private</span>:</span><br><span class="line">    <span class="built_in">std</span>::<span class="built_in">vector</span>&lt;<span class="built_in">std</span>::<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;&gt; res;</span><br><span class="line">    <span class="built_in">std</span>::<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt; tmp;</span><br><span class="line"></span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<h3 id="Code1"><a href="#Code1" class="headerlink" title="Code1"></a>Code1</h3><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="built_in">std</span>::<span class="built_in">vector</span>&lt;<span class="built_in">std</span>::<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;&gt; subsets(<span class="built_in">std</span>::<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;&amp; nums) &#123;</span><br><span class="line">        <span class="comment">// nums check</span></span><br><span class="line">        <span class="keyword">if</span> (nums.empty()) <span class="keyword">return</span> res;</span><br><span class="line"></span><br><span class="line">        <span class="comment">// start pos</span></span><br><span class="line">        <span class="comment">// Note: count represents size of tmp result</span></span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> count = <span class="number">0</span>; count &lt;= nums.size(); ++count) &#123;</span><br><span class="line">            dfs(nums, count, <span class="number">0</span>);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> res;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">void</span> <span class="title">dfs</span><span class="params">(<span class="built_in">std</span>::<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;&amp; nums, <span class="keyword">int</span> count, <span class="keyword">int</span> idx)</span> </span>&#123;</span><br><span class="line">        <span class="comment">// stop conditions</span></span><br><span class="line">        <span class="keyword">if</span> (count == tmp.size()) &#123;</span><br><span class="line">            res.push_back(tmp);</span><br><span class="line">            <span class="keyword">return</span>;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="comment">// dfs and context</span></span><br><span class="line">        <span class="comment">// traverse remaining nums after idx</span></span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = idx; i &lt; nums.size(); i++) &#123;</span><br><span class="line">            <span class="comment">// Note: nums[i] instead of nums[idx]</span></span><br><span class="line">            tmp.push_back(nums[i]);</span><br><span class="line">            dfs(nums, count, i+<span class="number">1</span>);</span><br><span class="line">            tmp.pop_back();</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">private</span>:</span><br><span class="line">    <span class="built_in">std</span>::<span class="built_in">vector</span>&lt;<span class="built_in">std</span>::<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;&gt; res;</span><br><span class="line">    <span class="built_in">std</span>::<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt; tmp;</span><br><span class="line"></span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
 
 <h3 id="Summary"><a href="#Summary" class="headerlink" title="Summary"></a>Summary</h3><ul>
 <li>Note: index when traversing remaining element </li>
 <li>for loop condition is Changing, not for (int i= 0; i &lt; nums.size(); ++i) always</li>
+</ul>
+<h3 id="Code2"><a href="#Code2" class="headerlink" title="Code2"></a>Code2</h3><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="built_in">std</span>::<span class="built_in">vector</span>&lt;<span class="built_in">std</span>::<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;&gt; subsets(<span class="built_in">std</span>::<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;&amp; nums) &#123;</span><br><span class="line">        dfs(nums, <span class="number">0</span>);</span><br><span class="line">        <span class="keyword">return</span> res;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">void</span> <span class="title">dfs</span><span class="params">(<span class="built_in">std</span>::<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;&amp; nums, <span class="keyword">int</span> idx)</span> </span>&#123;</span><br><span class="line">        <span class="comment">// </span></span><br><span class="line">        res.push_back(cur);</span><br><span class="line"></span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = idx; i &lt; nums.size(); i++) &#123;</span><br><span class="line">            <span class="comment">// nums[i] selected </span></span><br><span class="line">            cur.push_back(nums[i]);</span><br><span class="line">            dfs(nums, i+<span class="number">1</span>);</span><br><span class="line">            <span class="comment">// we can ignore this element, nums[i]</span></span><br><span class="line">            cur.pop_back();</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">private</span>:</span><br><span class="line">    <span class="built_in">std</span>::<span class="built_in">vector</span>&lt;<span class="built_in">std</span>::<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;&gt; res;</span><br><span class="line">    <span class="built_in">std</span>::<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt; cur;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+
+<h3 id="Code2-Summary"><a href="#Code2-Summary" class="headerlink" title="Code2 Summary"></a>Code2 Summary</h3><ul>
+<li>At every step, we have two choices for each element either we can ignore the element or we can include the element in cur vector</li>
 </ul>
 
     </div>
@@ -464,7 +477,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#Condition"><span class="nav-number">1.</span> <span class="nav-text">Condition</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Code"><span class="nav-number">2.</span> <span class="nav-text">Code</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Summary"><span class="nav-number">3.</span> <span class="nav-text">Summary</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#Condition"><span class="nav-number">1.</span> <span class="nav-text">Condition</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Code1"><span class="nav-number">2.</span> <span class="nav-text">Code1</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Summary"><span class="nav-number">3.</span> <span class="nav-text">Summary</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Code2"><span class="nav-number">4.</span> <span class="nav-text">Code2</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Code2-Summary"><span class="nav-number">5.</span> <span class="nav-text">Code2 Summary</span></a></li></ol></div>
             
 
           </div>
