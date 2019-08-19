@@ -2,7 +2,7 @@
 <search>
   <entry>
     <title><![CDATA[leetcode72_Subsets_bit]]></title>
-    <url>%2F2019%2F08%2F18%2Fleetcode72-Subsets-bit%2F</url>
+    <url>%2F2019%2F08%2F18%2Fleetcode78-Subsets-bit%2F</url>
     <content type="text"><![CDATA[Example12345678910bit ans0 0 0 == []0 0 1 == [1]0 1 0 == [2]0 1 1 == [1, 2]...1 1 0 == [2, 3]...1 1 1 == [1, 2, 3] Code12345678910111213141516171819202122class Solution &#123;public: std::vector&lt;std::vector&lt;int&gt;&gt; subsets(std::vector&lt;int&gt;&amp; nums) &#123; if (nums.empty()) return res; // 1 &lt;&lt; nums.size() == 2^nums.size() means number of all subset for (int i = 0; i &lt; 1&lt;&lt;nums.size(); ++i) &#123; tmp.clear(); // use bit enumerate candidate num in nums for (int j = 0; j &lt; nums.size(); ++j) &#123; if (i &gt;&gt; j &amp; 1) &#123; tmp.push_back(nums[j]); &#125; &#125; res.push_back(tmp); &#125; return res; &#125;public: std::vector&lt;int&gt; tmp; std::vector&lt;std::vector&lt;int&gt;&gt; res;&#125;; Summary: bit operation is more efficient]]></content>
       <categories>
         <category>leetcode</category>
