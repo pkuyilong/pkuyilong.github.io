@@ -1,6 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[K_smallest_element]]></title>
+    <url>%2F2019%2F08%2F19%2FK-smallest-element%2F</url>
+    <content type="text"><![CDATA[Condition find k smallest element in array, suppose k == 3 Solution In order to find k smallest element, we need to keep a max heap to store the smaller elements if come across a new elemnt smaller than heap top(), namely max element in heap, we need to remove this element and push new one. Code12345678910111213141516171819202122232425262728#include &lt;iostream&gt;#include &lt;queue&gt;int main() &#123; std::priority_queue&lt;int&gt; pq; for (int i = 0; i &lt; 7; i++) &#123; int tmp = rand() % 20; // suppose k equals to 3 if (i &lt; 3) &#123; pq.push(tmp); &#125; else if (tmp &lt; pq.top()) &#123; // remove the max elements pq.pop(); // push new one pq.push(tmp); &#125; &#125; std::cout &lt;&lt; "Hello, World!" &lt;&lt; std::endl; while (!pq.empty()) &#123; std::cout &lt;&lt; pq.top() &lt;&lt; std::endl; pq.pop(); &#125; return 0;&#125; Time ComplexitynLog(K), n means all elements in array, K means max heap size, update and adjust heap need log(k).]]></content>
+      <categories>
+        <category>leetcode</category>
+      </categories>
+      <tags>
+        <tag>heap, priority_queue</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[Tensorflow_Dataset]]></title>
     <url>%2F2019%2F08%2F19%2FTensorflow-Dataset%2F</url>
     <content type="text"><![CDATA[123456789101112131415161718192021222324252627282930313233343536# Wrapping all together -&gt; Switch between train and test set using Initializable iteratorEPOCHS = 10# create a placeholder to dynamically switch between batch sizesbatch_size = tf.placeholder(tf.int64)x, y = tf.placeholder(tf.float32, shape=[None,2]), tf.placeholder(tf.float32, shape=[None,1])dataset = tf.data.Dataset.from_tensor_slices((x, y)).batch(batch_size).repeat()# using two numpy arraystrain_data = (np.random.sample((100,2)), np.random.sample((100,1)))test_data = (np.random.sample((20,2)), np.random.sample((20,1)))iter = dataset.make_initializable_iterator()# get features labelsfeatures, labels = iter.get_next()# make a simple modelnet = tf.layers.dense(features, 8, activation=tf.tanh) # pass the first value from iter.get_next() as inputnet = tf.layers.dense(net, 8, activation=tf.tanh)prediction = tf.layers.dense(net, 1, activation=tf.tanh)loss = tf.losses.mean_squared_error(prediction, labels) # pass the second value from iter.get_net() as labeltrain_op = tf.train.AdamOptimizer().minimize(loss)with tf.Session() as sess: sess.run(tf.global_variables_initializer()) # initialise iterator with train data sess.run(iter.initializer, feed_dict=&#123; x: train_data[0], y: train_data[1], batch_size: BATCH_SIZE&#125;) print('Training...') for i in range(EPOCHS): tot_loss = 0 for _ in range(n_batches): _, loss_value = sess.run([train_op, loss]) tot_loss += loss_value print("Iter: &#123;&#125;, Loss: &#123;:.4f&#125;".format(i, tot_loss / n_batches)) # initialise iterator with test data sess.run(iter.initializer, feed_dict=&#123; x: test_data[0], y: test_data[1], batch_size: test_data[0].shape[0]&#125;) print('Test Loss: &#123;:4f&#125;'.format(sess.run(loss)))]]></content>
