@@ -1,6 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[Tensorflow_Dataset]]></title>
+    <url>%2F2019%2F08%2F19%2FTensorflow-Dataset%2F</url>
+    <content type="text"><![CDATA[123456789101112131415161718192021222324252627282930313233343536# Wrapping all together -&gt; Switch between train and test set using Initializable iteratorEPOCHS = 10# create a placeholder to dynamically switch between batch sizesbatch_size = tf.placeholder(tf.int64)x, y = tf.placeholder(tf.float32, shape=[None,2]), tf.placeholder(tf.float32, shape=[None,1])dataset = tf.data.Dataset.from_tensor_slices((x, y)).batch(batch_size).repeat()# using two numpy arraystrain_data = (np.random.sample((100,2)), np.random.sample((100,1)))test_data = (np.random.sample((20,2)), np.random.sample((20,1)))iter = dataset.make_initializable_iterator()# get features labelsfeatures, labels = iter.get_next()# make a simple modelnet = tf.layers.dense(features, 8, activation=tf.tanh) # pass the first value from iter.get_next() as inputnet = tf.layers.dense(net, 8, activation=tf.tanh)prediction = tf.layers.dense(net, 1, activation=tf.tanh)loss = tf.losses.mean_squared_error(prediction, labels) # pass the second value from iter.get_net() as labeltrain_op = tf.train.AdamOptimizer().minimize(loss)with tf.Session() as sess: sess.run(tf.global_variables_initializer()) # initialise iterator with train data sess.run(iter.initializer, feed_dict=&#123; x: train_data[0], y: train_data[1], batch_size: BATCH_SIZE&#125;) print('Training...') for i in range(EPOCHS): tot_loss = 0 for _ in range(n_batches): _, loss_value = sess.run([train_op, loss]) tot_loss += loss_value print("Iter: &#123;&#125;, Loss: &#123;:.4f&#125;".format(i, tot_loss / n_batches)) # initialise iterator with test data sess.run(iter.initializer, feed_dict=&#123; x: test_data[0], y: test_data[1], batch_size: test_data[0].shape[0]&#125;) print('Test Loss: &#123;:4f&#125;'.format(sess.run(loss)))]]></content>
+      <categories>
+        <category>DL</category>
+      </categories>
+      <tags>
+        <tag>tensorflow, dataset</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[leetcode72_Subsets_bit]]></title>
     <url>%2F2019%2F08%2F18%2Fleetcode78-Subsets-bit%2F</url>
     <content type="text"><![CDATA[Example12345678910bit ans0 0 0 == []0 0 1 == [1]0 1 0 == [2]0 1 1 == [1, 2]...1 1 0 == [2, 3]...1 1 1 == [1, 2, 3] Code12345678910111213141516171819202122class Solution &#123;public: std::vector&lt;std::vector&lt;int&gt;&gt; subsets(std::vector&lt;int&gt;&amp; nums) &#123; if (nums.empty()) return res; // 1 &lt;&lt; nums.size() == 2^nums.size() means number of all subset for (int i = 0; i &lt; 1&lt;&lt;nums.size(); ++i) &#123; tmp.clear(); // use bit enumerate candidate num in nums for (int j = 0; j &lt; nums.size(); ++j) &#123; if (i &gt;&gt; j &amp; 1) &#123; tmp.push_back(nums[j]); &#125; &#125; res.push_back(tmp); &#125; return res; &#125;public: std::vector&lt;int&gt; tmp; std::vector&lt;std::vector&lt;int&gt;&gt; res;&#125;; Summary: bit operation is more efficient]]></content>

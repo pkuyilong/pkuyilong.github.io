@@ -220,6 +220,100 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/08/19/Tensorflow-Dataset/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Yi Long">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Act in a steady way">
+    </span>
+      <header class="post-header">
+
+        
+          <h1 class="post-title" itemprop="name headline">
+              
+              <a href="/2019/08/19/Tensorflow-Dataset/" class="post-title-link" itemprop="url">Tensorflow_Dataset</a>
+            
+          </h1>
+        
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+
+              
+                
+              
+
+              <time title="Created: 2019-08-19 19:45:14 / Modified: 19:45:43" itemprop="dateCreated datePublished" datetime="2019-08-19T19:45:14+08:00">2019-08-19</time>
+            </span>
+          
+            
+
+            
+          
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/DL/" itemprop="url" rel="index"><span itemprop="name">DL</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          
+            <figure class="highlight vim"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br></pre></td><td class="code"><pre><span class="line"># Wrapping <span class="keyword">all</span> together -&gt; Switch between train <span class="built_in">and</span> test <span class="keyword">set</span> using Initializable iterator</span><br><span class="line">EPOCHS = <span class="number">10</span></span><br><span class="line"></span><br><span class="line"># create <span class="keyword">a</span> placeholder <span class="keyword">to</span> dynamically switch between batch sizes</span><br><span class="line">batch_size = <span class="keyword">tf</span>.placeholder(<span class="keyword">tf</span>.int64)</span><br><span class="line"><span class="keyword">x</span>, <span class="keyword">y</span> = <span class="keyword">tf</span>.placeholder(<span class="keyword">tf</span>.float32, shape=[None,<span class="number">2</span>]), <span class="keyword">tf</span>.placeholder(<span class="keyword">tf</span>.float32, shape=[None,<span class="number">1</span>])</span><br><span class="line"></span><br><span class="line">dataset = <span class="keyword">tf</span>.data.Dataset.from_tensor_slices((<span class="keyword">x</span>, <span class="keyword">y</span>)).batch(batch_size).<span class="built_in">repeat</span>()</span><br><span class="line"></span><br><span class="line"># using two numpy arrays</span><br><span class="line">train_data = (np.random.sample((<span class="number">100</span>,<span class="number">2</span>)), np.random.sample((<span class="number">100</span>,<span class="number">1</span>)))</span><br><span class="line">test_data = (np.random.sample((<span class="number">20</span>,<span class="number">2</span>)), np.random.sample((<span class="number">20</span>,<span class="number">1</span>)))</span><br><span class="line">iter = dataset.make_initializable_iterator()</span><br><span class="line"># <span class="built_in">get</span> features labels</span><br><span class="line">features, labels = iter.get_next()</span><br><span class="line"></span><br><span class="line"># <span class="keyword">make</span> <span class="keyword">a</span> simple model</span><br><span class="line">net = <span class="keyword">tf</span>.layers.dense(features, <span class="number">8</span>, activation=<span class="keyword">tf</span>.<span class="built_in">tanh</span>) # pass the <span class="keyword">first</span> value from iter.get_next() <span class="keyword">as</span> <span class="built_in">input</span></span><br><span class="line">net = <span class="keyword">tf</span>.layers.dense(net, <span class="number">8</span>, activation=<span class="keyword">tf</span>.<span class="built_in">tanh</span>)</span><br><span class="line">prediction = <span class="keyword">tf</span>.layers.dense(net, <span class="number">1</span>, activation=<span class="keyword">tf</span>.<span class="built_in">tanh</span>)</span><br><span class="line">loss = <span class="keyword">tf</span>.losses.mean_squared_error(prediction, labels) # pass the second value from iter.get_net() <span class="keyword">as</span> label</span><br><span class="line">train_op = <span class="keyword">tf</span>.train.AdamOptimizer().minimize(loss)</span><br><span class="line">with <span class="keyword">tf</span>.Session() <span class="keyword">as</span> ses<span class="variable">s:</span></span><br><span class="line">    sess.run(<span class="keyword">tf</span>.global_variables_initializer())</span><br><span class="line">    # initialise iterator with train data</span><br><span class="line">    sess.run(iter.initializer, feed_dict=&#123; <span class="keyword">x</span>: train_data[<span class="number">0</span>], <span class="keyword">y</span>: train_data[<span class="number">1</span>], batch_size: BATCH_SIZE&#125;)</span><br><span class="line">    <span class="keyword">print</span>(<span class="string">'Training...'</span>)</span><br><span class="line">    <span class="keyword">for</span> i in <span class="built_in">range</span>(EPOCHS):</span><br><span class="line">        tot_loss = <span class="number">0</span></span><br><span class="line">        <span class="keyword">for</span> _ in <span class="built_in">range</span>(n_batches):</span><br><span class="line">            _, loss_value = sess.run([train_op, loss])</span><br><span class="line">            tot_loss += loss_value</span><br><span class="line">        <span class="keyword">print</span>(<span class="string">"Iter: &#123;&#125;, Loss: &#123;:.4f&#125;"</span>.format(i, tot_loss / n_batches))</span><br><span class="line">    # initialise iterator with test data</span><br><span class="line">    sess.run(iter.initializer, feed_dict=&#123; <span class="keyword">x</span>: test_data[<span class="number">0</span>], <span class="keyword">y</span>: test_data[<span class="number">1</span>], batch_size: test_data[<span class="number">0</span>].shape[<span class="number">0</span>]&#125;)</span><br><span class="line">    <span class="keyword">print</span>(<span class="string">'Test Loss: &#123;:4f&#125;'</span>.format(sess.run(loss)))</span><br></pre></td></tr></table></figure>
+
+
+          
+        
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+          <div class="post-eof"></div>
+        
+      </footer>
+  </div>
+  
+  
+  
+  </article>
+
+    
+      
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/08/18/leetcode78-Subsets-bit/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1105,124 +1199,6 @@
   </article>
 
     
-      
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/08/15/Resnet-Attention/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Yi Long">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Act in a steady way">
-    </span>
-      <header class="post-header">
-
-        
-          <h1 class="post-title" itemprop="name headline">
-              
-              <a href="/2019/08/15/Resnet-Attention/" class="post-title-link" itemprop="url">Resnet_Attention</a>
-            
-          </h1>
-        
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              <span class="post-meta-item-text">Posted on</span>
-
-              
-                
-              
-
-              <time title="Created: 2019-08-15 14:54:34" itemprop="dateCreated datePublished" datetime="2019-08-15T14:54:34+08:00">2019-08-15</time>
-            </span>
-          
-            
-
-            
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2019-08-17 14:29:32" itemprop="dateModified" datetime="2019-08-17T14:29:32+08:00">2019-08-17</time>
-              </span>
-            
-          
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">In</span>
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/DL/" itemprop="url" rel="index"><span itemprop="name">DL</span></a></span>
-
-                
-                
-              
-            </span>
-          
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          
-            <h3 id="动机"><a href="#动机" class="headerlink" title="动机"></a>动机</h3><ol>
-<li>相比与传统残差网络模型机制，残差注意力机制可以达到更细粒度的特征匹配</li>
-<li>可以加强目标区域的影响力，抑制非目标区域的影响力</li>
-</ol>
-<h3 id="贡献"><a href="#贡献" class="headerlink" title="贡献"></a>贡献</h3><ol>
-<li><p>提出了一种注意力机制模块，大致有两部分组成</p>
-<ol>
-<li>一部分是resnet中的部分网络结果，这成为主干分支， trunk branch</li>
-<li>一部分是编码解码网络，主要进行了一次下采样和上采样， 这是掩码分支</li>
-</ol>
-</li>
-<li><p>对主干分支的输出和掩码分支的输出进行按位乘</p>
-<ol>
-<li>注意：掩码分支的输出要进行sigmoid处理，使其变成0到1之间的数值，代表主干分支中特征图中该位置像素的影响力</li>
-<li>注意：并不是完全的按位乘，那就太naive了，因为会导致梯度弥散问题。因此在这里借鉴了残差网络的和核心原理，使用（1+掩码分支）* 主干分支，如果某个像素位置的掩码很大，那么在这里就会被放大。如果此位置掩码很小，那就相当于保留了主干分支，至少可以保证主干分支的特征， 优秀</li>
-</ol>
-</li>
-</ol>
-
-          
-        
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-          <div class="post-eof"></div>
-        
-      </footer>
-  </div>
-  
-  
-  
-  </article>
-
-    
   </section>
 
   
@@ -1260,7 +1236,7 @@
         
           <a href="/archives/">
         
-          <span class="site-state-item-count">16</span>
+          <span class="site-state-item-count">17</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
@@ -1314,7 +1290,9 @@
         
           
         
-        <span class="site-state-item-count">7</span>
+          
+        
+        <span class="site-state-item-count">8</span>
         <span class="site-state-item-name">tags</span>
         </a>
       </div>
