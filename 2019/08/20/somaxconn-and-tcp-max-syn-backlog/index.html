@@ -55,18 +55,18 @@
   };
 </script>
 
-  <meta name="description" content="12345678910### 系统参数含义- net.core.somaxconn = 262144	1. 系统级设置， 决定了最大可以存储已经建立连接的socket的数量- net.ipv4.tcp_max_syn_backlog = 8192	1. 决定了最大可以存储半连接的socket的数量- net.ipv4.tcp_syncookies = 1 用来防范syn-flood攻击### 关系">
+  <meta name="description" content="12345678910###系统参数含义-net.core.somaxconn = 262144	1.系统级设置， 决定了最大可以存储已经建立连接的socket的数量-net.ipv4.tcp_max_syn_backlog = 8192	1.决定了最大可以存储半连接的socket的数量-net.ipv4.tcp_syncookies = 1 用来防范syn-flood攻击###关系-理论上来说，">
 <meta name="keywords" content="kernel tuning">
 <meta property="og:type" content="article">
 <meta property="og:title" content="somaxconn_and_tcp_max_syn_backlog">
 <meta property="og:url" content="http://yoursite.com/2019/08/20/somaxconn-and-tcp-max-syn-backlog/index.html">
 <meta property="og:site_name" content="Act in a steady way">
-<meta property="og:description" content="12345678910### 系统参数含义- net.core.somaxconn = 262144	1. 系统级设置， 决定了最大可以存储已经建立连接的socket的数量- net.ipv4.tcp_max_syn_backlog = 8192	1. 决定了最大可以存储半连接的socket的数量- net.ipv4.tcp_syncookies = 1 用来防范syn-flood攻击### 关系">
+<meta property="og:description" content="12345678910###系统参数含义-net.core.somaxconn = 262144	1.系统级设置， 决定了最大可以存储已经建立连接的socket的数量-net.ipv4.tcp_max_syn_backlog = 8192	1.决定了最大可以存储半连接的socket的数量-net.ipv4.tcp_syncookies = 1 用来防范syn-flood攻击###关系-理论上来说，">
 <meta property="og:locale" content="en">
-<meta property="og:updated_time" content="2019-08-20T06:18:41.038Z">
+<meta property="og:updated_time" content="2019-08-20T06:20:50.101Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="somaxconn_and_tcp_max_syn_backlog">
-<meta name="twitter:description" content="12345678910### 系统参数含义- net.core.somaxconn = 262144	1. 系统级设置， 决定了最大可以存储已经建立连接的socket的数量- net.ipv4.tcp_max_syn_backlog = 8192	1. 决定了最大可以存储半连接的socket的数量- net.ipv4.tcp_syncookies = 1 用来防范syn-flood攻击### 关系">
+<meta name="twitter:description" content="12345678910###系统参数含义-net.core.somaxconn = 262144	1.系统级设置， 决定了最大可以存储已经建立连接的socket的数量-net.ipv4.tcp_max_syn_backlog = 8192	1.决定了最大可以存储半连接的socket的数量-net.ipv4.tcp_syncookies = 1 用来防范syn-flood攻击###关系-理论上来说，">
   <link rel="canonical" href="http://yoursite.com/2019/08/20/somaxconn-and-tcp-max-syn-backlog/">
 
 
@@ -256,7 +256,7 @@
                 
               
 
-              <time title="Created: 2019-08-20 14:17:43 / Modified: 14:18:41" itemprop="dateCreated datePublished" datetime="2019-08-20T14:17:43+08:00">2019-08-20</time>
+              <time title="Created: 2019-08-20 14:17:43 / Modified: 14:20:50" itemprop="dateCreated datePublished" datetime="2019-08-20T14:17:43+08:00">2019-08-20</time>
             </span>
           
             
@@ -288,7 +288,7 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="section">### 系统参数含义</span></span><br><span class="line"><span class="bullet">- </span>net.core.somaxconn = 262144</span><br><span class="line"><span class="bullet">	1. </span>系统级设置， 决定了最大可以存储已经建立连接的socket的数量</span><br><span class="line"><span class="bullet">- </span>net.ipv4.tcp<span class="emphasis">_max_</span>syn_backlog = 8192</span><br><span class="line"><span class="bullet">	1. </span>决定了最大可以存储半连接的socket的数量</span><br><span class="line"></span><br><span class="line"><span class="bullet">- </span>net.ipv4.tcp_syncookies = 1 用来防范syn-flood攻击</span><br><span class="line"></span><br><span class="line"><span class="section">### 关系</span></span><br><span class="line"><span class="bullet">- </span>理论上来说，net.ipv4.tcp<span class="emphasis">_max_</span>syn_backlog &gt;= net.core.somaxconn</span><br></pre></td></tr></table></figure>
+        <figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">###系统参数含义</span><br><span class="line">-net<span class="selector-class">.core</span><span class="selector-class">.somaxconn</span> = <span class="number">262144</span></span><br><span class="line">	<span class="number">1</span>.系统级设置， 决定了最大可以存储已经建立连接的socket的数量</span><br><span class="line">-net<span class="selector-class">.ipv4</span><span class="selector-class">.tcp_max_syn_backlog</span> = <span class="number">8192</span></span><br><span class="line">	<span class="number">1</span>.决定了最大可以存储半连接的socket的数量</span><br><span class="line"></span><br><span class="line">-net<span class="selector-class">.ipv4</span><span class="selector-class">.tcp_syncookies</span> = <span class="number">1</span> 用来防范syn-flood攻击</span><br><span class="line"></span><br><span class="line">###关系</span><br><span class="line">-理论上来说，net<span class="selector-class">.ipv4</span><span class="selector-class">.tcp_max_syn_backlog</span> &gt;= net<span class="selector-class">.core</span><span class="selector-class">.somaxconn</span></span><br></pre></td></tr></table></figure>
 
 
     </div>

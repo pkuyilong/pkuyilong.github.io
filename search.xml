@@ -3,7 +3,7 @@
   <entry>
     <title><![CDATA[somaxconn_and_tcp_max_syn_backlog]]></title>
     <url>%2F2019%2F08%2F20%2Fsomaxconn-and-tcp-max-syn-backlog%2F</url>
-    <content type="text"><![CDATA[12345678910### 系统参数含义- net.core.somaxconn = 262144 1. 系统级设置， 决定了最大可以存储已经建立连接的socket的数量- net.ipv4.tcp_max_syn_backlog = 8192 1. 决定了最大可以存储半连接的socket的数量- net.ipv4.tcp_syncookies = 1 用来防范syn-flood攻击### 关系- 理论上来说，net.ipv4.tcp_max_syn_backlog &gt;= net.core.somaxconn]]></content>
+    <content type="text"><![CDATA[12345678910###系统参数含义-net.core.somaxconn = 262144 1.系统级设置， 决定了最大可以存储已经建立连接的socket的数量-net.ipv4.tcp_max_syn_backlog = 8192 1.决定了最大可以存储半连接的socket的数量-net.ipv4.tcp_syncookies = 1 用来防范syn-flood攻击###关系-理论上来说，net.ipv4.tcp_max_syn_backlog &gt;= net.core.somaxconn]]></content>
       <categories>
         <category>Linux</category>
       </categories>
