@@ -55,15 +55,19 @@
   };
 </script>
 
-  <meta name="keywords" content="leetcode, DL, Perception">
-<meta property="og:type" content="website">
-<meta property="og:title" content="Act in a steady way">
-<meta property="og:url" content="http://yoursite.com/archives/page/2/index.html">
+  <meta name="description" content="12345678910### 系统参数含义- net.core.somaxconn = 262144	1. 系统级设置， 决定了最大可以存储已经建立连接的socket的数量- net.ipv4.tcp_max_syn_backlog = 8192	1. 决定了最大可以存储半连接的socket的数量- net.ipv4.tcp_syncookies = 1 用来防范syn-flood攻击### 关系">
+<meta name="keywords" content="kernel tuning">
+<meta property="og:type" content="article">
+<meta property="og:title" content="somaxconn_and_tcp_max_syn_backlog">
+<meta property="og:url" content="http://yoursite.com/2019/08/20/somaxconn-and-tcp-max-syn-backlog/index.html">
 <meta property="og:site_name" content="Act in a steady way">
+<meta property="og:description" content="12345678910### 系统参数含义- net.core.somaxconn = 262144	1. 系统级设置， 决定了最大可以存储已经建立连接的socket的数量- net.ipv4.tcp_max_syn_backlog = 8192	1. 决定了最大可以存储半连接的socket的数量- net.ipv4.tcp_syncookies = 1 用来防范syn-flood攻击### 关系">
 <meta property="og:locale" content="en">
+<meta property="og:updated_time" content="2019-08-20T06:18:41.038Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Act in a steady way">
-  <link rel="canonical" href="http://yoursite.com/archives/page/2/">
+<meta name="twitter:title" content="somaxconn_and_tcp_max_syn_backlog">
+<meta name="twitter:description" content="12345678910### 系统参数含义- net.core.somaxconn = 262144	1. 系统级设置， 决定了最大可以存储已经建立连接的socket的数量- net.ipv4.tcp_max_syn_backlog = 8192	1. 决定了最大可以存储半连接的socket的数量- net.ipv4.tcp_syncookies = 1 用来防范syn-flood攻击### 关系">
+  <link rel="canonical" href="http://yoursite.com/2019/08/20/somaxconn-and-tcp-max-syn-backlog/">
 
 
 <script id="page-configurations">
@@ -71,13 +75,13 @@
   CONFIG.page = {
     sidebar: "",
     isHome: false,
-    isPost: false,
+    isPost: true,
     isPage: false,
-    isArchive: true
+    isArchive: false
   };
 </script>
 
-  <title>Archive | Act in a steady way</title>
+  <title>somaxconn_and_tcp_max_syn_backlog | Act in a steady way</title>
   
 
 
@@ -179,18 +183,6 @@
 
     
 
-    
-    
-      
-      
-    
-      
-      
-    
-    
-
-  
-
 </nav>
   <div class="site-search">
     
@@ -222,341 +214,129 @@
     <main id="main" class="main">
       <div class="main-inner">
         <div class="content-wrap">
-          <div id="content" class="content page-archive">
+          <div id="content" class="content page-post-detail">
             
 
-  
-  
-  
-  <div class="post-block archive">
-    <div id="posts" class="posts-collapse">
-      <span class="archive-move-on"></span>
-      <span class="archive-page-counter">
-        
-        
-        
-          
-        
-        Um..! 19 posts in total. Keep on posting.
-      </span>
-      
-
-      
-
-  
-  
-  
-
-  
+  <div id="posts" class="posts-expand">
     
-    <div class="collection-title">
-      <h1 class="archive-year" id="archive-year-2019">2019</h1>
-    </div>
-  
-  
 
   <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/08/20/somaxconn-and-tcp-max-syn-backlog/">
 
-      <h2 class="post-title">
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Yi Long">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Act in a steady way">
+    </span>
+      <header class="post-header">
+
         
-          <a class="post-title-link" href="/2019/08/16/git-common-order/" itemprop="url">
+          <h1 class="post-title" itemprop="name headline">somaxconn_and_tcp_max_syn_backlog
+
             
-              <span itemprop="name">git_common_order</span>
-            
-          </a>
+          </h1>
         
-      </h2>
 
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2019-08-16T18:19:53+08:00"
-              content="2019-08-16">
-          08-16
-        </time>
-      </div>
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
 
-    </header>
-  </article>
+              
+                
+              
 
-
-
-  
-  
-  
-
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-          <a class="post-title-link" href="/2019/08/16/Split-GIF-Frames/" itemprop="url">
+              <time title="Created: 2019-08-20 14:17:43 / Modified: 14:18:41" itemprop="dateCreated datePublished" datetime="2019-08-20T14:17:43+08:00">2019-08-20</time>
+            </span>
+          
             
-              <span itemprop="name">Split_GIF_Frames</span>
+
             
-          </a>
-        
-      </h2>
+          
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/Linux/" itemprop="url" rel="index"><span itemprop="name">Linux</span></a></span>
 
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2019-08-16T12:30:42+08:00"
-              content="2019-08-16">
-          08-16
-        </time>
-      </div>
+                
+                
+              
+            </span>
+          
 
-    </header>
-  </article>
+          
 
+        </div>
+      </header>
 
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
 
-  
-  
-  
-
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-          <a class="post-title-link" href="/2019/08/15/Resnet-Attention/" itemprop="url">
-            
-              <span itemprop="name">Resnet_Attention</span>
-            
-          </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2019-08-15T14:54:34+08:00"
-              content="2019-08-15">
-          08-15
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-
-  
-  
-  
-
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-          <a class="post-title-link" href="/2019/08/15/公平分汤问题/" itemprop="url">
-            
-              <span itemprop="name">Share soup fairly</span>
-            
-          </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2019-08-15T01:01:41+08:00"
-              content="2019-08-15">
-          08-15
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-
-  
-  
-  
-
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-          <a class="post-title-link" href="/2019/08/14/leetcode131-Palindrome-Partitioning/" itemprop="url">
-            
-              <span itemprop="name">leetcode131_Palindrome_Partitioning</span>
-            
-          </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2019-08-14T23:30:49+08:00"
-              content="2019-08-14">
-          08-14
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-
-  
-  
-  
-
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-          <a class="post-title-link" href="/2019/08/14/producer-consumer-pattern/" itemprop="url">
-            
-              <span itemprop="name">producer_consumer_pattern</span>
-            
-          </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2019-08-14T19:54:25+08:00"
-              content="2019-08-14">
-          08-14
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-
-  
-  
-  
-
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-          <a class="post-title-link" href="/2019/08/14/mistakes/" itemprop="url">
-            
-              <span itemprop="name">mistakes</span>
-            
-          </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2019-08-14T14:21:15+08:00"
-              content="2019-08-14">
-          08-14
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-
-  
-  
-  
-
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-          <a class="post-title-link" href="/2019/08/14/leetcode206-Reverse-Linked-List/" itemprop="url">
-            
-              <span itemprop="name">leetcode206_Reverse_Linked_List</span>
-            
-          </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2019-08-14T13:43:22+08:00"
-              content="2019-08-14">
-          08-14
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-
-  
-  
-  
-
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-          <a class="post-title-link" href="/2019/08/13/leetcode239-SlidingWindowMaximum/" itemprop="url">
-            
-              <span itemprop="name">leetcode239_SlidingWindowMaximum</span>
-            
-          </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2019-08-13T11:46:20+08:00"
-              content="2019-08-13">
-          08-13
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
+      
+        <figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="section">### 系统参数含义</span></span><br><span class="line"><span class="bullet">- </span>net.core.somaxconn = 262144</span><br><span class="line"><span class="bullet">	1. </span>系统级设置， 决定了最大可以存储已经建立连接的socket的数量</span><br><span class="line"><span class="bullet">- </span>net.ipv4.tcp<span class="emphasis">_max_</span>syn_backlog = 8192</span><br><span class="line"><span class="bullet">	1. </span>决定了最大可以存储半连接的socket的数量</span><br><span class="line"></span><br><span class="line"><span class="bullet">- </span>net.ipv4.tcp_syncookies = 1 用来防范syn-flood攻击</span><br><span class="line"></span><br><span class="line"><span class="section">### 关系</span></span><br><span class="line"><span class="bullet">- </span>理论上来说，net.ipv4.tcp<span class="emphasis">_max_</span>syn_backlog &gt;= net.core.somaxconn</span><br></pre></td></tr></table></figure>
 
 
     </div>
+
+    
+    
+    
+        
+      
+
+      <footer class="post-footer">
+          
+            
+          
+          <div class="post-tags">
+            
+              <a href="/tags/kernel-tuning/" rel="tag"># kernel tuning</a>
+            
+          </div>
+        
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-next post-nav-item">
+              
+                <a href="/2019/08/19/K-smallest-element/" rel="next" title="K_smallest_element">
+                  <i class="fa fa-chevron-left"></i> K_smallest_element
+                </a>
+              
+            </div>
+
+            <span class="post-nav-divider"></span>
+
+            <div class="post-nav-prev post-nav-item">
+              
+            </div>
+          </div>
+        
+      </footer>
+    
   </div>
   
   
   
+  </article>
 
-  
-  <nav class="pagination">
-    <a class="extend prev" rel="prev" href="/archives/"><i class="fa fa-angle-left" aria-label="Previous page"></i></a><a class="page-number" href="/archives/">1</a><span class="page-number current">2</span>
-  </nav>
-
+  </div>
 
 
           </div>
@@ -758,5 +538,9 @@
 
 
   
+  <script src="/js/scrollspy.js?v=7.3.0"></script>
+<script src="/js/post-details.js?v=7.3.0"></script>
+
+
 </body>
 </html>
