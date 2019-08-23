@@ -137,7 +137,7 @@
   <entry>
     <title><![CDATA[Split_GIF_Frames]]></title>
     <url>%2F2019%2F08%2F16%2FSplit-GIF-Frames%2F</url>
-    <content type="text"><![CDATA[1234567891011import imageiofrom PIL import Image# 这一步解析之后，是一个list，里面存放着图片的array数据。frames = imageio.mimread('100.gif')for i, cont in enumerate(frames): # 将array数据转换成Image可以识别的数据 cont = Image.fromarray(cont) cont = cont.convert("RGB") cont.save("100_&#123;:03d&#125;.jpeg".format(i))]]></content>
+    <content type="text"><![CDATA[Method 11234567891011import imageiofrom PIL import Image# 这一步解析之后，是一个list，里面存放着图片的array数据。frames = imageio.mimread('100.gif')for i, cont in enumerate(frames): # 将array数据转换成Image可以识别的数据 cont = Image.fromarray(cont) cont = cont.convert("RGB") cont.save("100_&#123;:03d&#125;.jpeg".format(i)) Method 2123456from PIL import Image, ImageSequencedef split_gif(img): sequence = [] for frame_idx, frame in enumerate(ImageSequence.Iterator(img), 1): frame = frame.convert('RGB') sequence.append(frame)]]></content>
       <categories>
         <category>CV</category>
       </categories>

@@ -55,18 +55,18 @@
   };
 </script>
 
-  <meta name="description" content="1234567891011import imageiofrom PIL import Image# 这一步解析之后，是一个list，里面存放着图片的array数据。frames = imageio.mimread(&apos;100.gif&apos;)for i, cont in enumerate(frames):     #  将array数据转换成Image可以识别的数据     cont = Image.f">
+  <meta name="description" content="Method 11234567891011import imageiofrom PIL import Image# 这一步解析之后，是一个list，里面存放着图片的array数据。frames = imageio.mimread(&apos;100.gif&apos;)for i, cont in enumerate(frames):     #  将array数据转换成Image可以识别的数据     cont =">
 <meta name="keywords" content="Image imageio GIF">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Split_GIF_Frames">
 <meta property="og:url" content="http://yoursite.com/2019/08/16/Split-GIF-Frames/index.html">
 <meta property="og:site_name" content="Act in a steady way">
-<meta property="og:description" content="1234567891011import imageiofrom PIL import Image# 这一步解析之后，是一个list，里面存放着图片的array数据。frames = imageio.mimread(&apos;100.gif&apos;)for i, cont in enumerate(frames):     #  将array数据转换成Image可以识别的数据     cont = Image.f">
+<meta property="og:description" content="Method 11234567891011import imageiofrom PIL import Image# 这一步解析之后，是一个list，里面存放着图片的array数据。frames = imageio.mimread(&apos;100.gif&apos;)for i, cont in enumerate(frames):     #  将array数据转换成Image可以识别的数据     cont =">
 <meta property="og:locale" content="en">
-<meta property="og:updated_time" content="2019-08-16T04:33:14.922Z">
+<meta property="og:updated_time" content="2019-08-23T13:34:01.436Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Split_GIF_Frames">
-<meta name="twitter:description" content="1234567891011import imageiofrom PIL import Image# 这一步解析之后，是一个list，里面存放着图片的array数据。frames = imageio.mimread(&apos;100.gif&apos;)for i, cont in enumerate(frames):     #  将array数据转换成Image可以识别的数据     cont = Image.f">
+<meta name="twitter:description" content="Method 11234567891011import imageiofrom PIL import Image# 这一步解析之后，是一个list，里面存放着图片的array数据。frames = imageio.mimread(&apos;100.gif&apos;)for i, cont in enumerate(frames):     #  将array数据转换成Image可以识别的数据     cont =">
   <link rel="canonical" href="http://yoursite.com/2019/08/16/Split-GIF-Frames/">
 
 
@@ -256,11 +256,19 @@
                 
               
 
-              <time title="Created: 2019-08-16 12:30:42 / Modified: 12:33:14" itemprop="dateCreated datePublished" datetime="2019-08-16T12:30:42+08:00">2019-08-16</time>
+              <time title="Created: 2019-08-16 12:30:42" itemprop="dateCreated datePublished" datetime="2019-08-16T12:30:42+08:00">2019-08-16</time>
             </span>
           
             
 
+            
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2019-08-23 21:34:01" itemprop="dateModified" datetime="2019-08-23T21:34:01+08:00">2019-08-23</time>
+              </span>
             
           
             <span class="post-meta-item">
@@ -288,7 +296,9 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <figure class="highlight coffeescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> imageio</span><br><span class="line"><span class="keyword">from</span> PIL <span class="keyword">import</span> Image</span><br><span class="line"></span><br><span class="line"><span class="comment"># 这一步解析之后，是一个list，里面存放着图片的array数据。</span></span><br><span class="line">frames = imageio.mimread(<span class="string">'100.gif'</span>)</span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span> i, cont <span class="keyword">in</span> enumerate(frames):</span><br><span class="line">     <span class="comment">#  将array数据转换成Image可以识别的数据</span></span><br><span class="line">     cont = Image.fromarray(cont)</span><br><span class="line">     cont = cont.convert(<span class="string">"RGB"</span>)</span><br><span class="line">     cont.save(<span class="string">"100_&#123;:03d&#125;.jpeg"</span>.format(i))</span><br></pre></td></tr></table></figure>
+        <h3 id="Method-1"><a href="#Method-1" class="headerlink" title="Method 1"></a>Method 1</h3><figure class="highlight coffeescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> imageio</span><br><span class="line"><span class="keyword">from</span> PIL <span class="keyword">import</span> Image</span><br><span class="line"></span><br><span class="line"><span class="comment"># 这一步解析之后，是一个list，里面存放着图片的array数据。</span></span><br><span class="line">frames = imageio.mimread(<span class="string">'100.gif'</span>)</span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span> i, cont <span class="keyword">in</span> enumerate(frames):</span><br><span class="line">     <span class="comment">#  将array数据转换成Image可以识别的数据</span></span><br><span class="line">     cont = Image.fromarray(cont)</span><br><span class="line">     cont = cont.convert(<span class="string">"RGB"</span>)</span><br><span class="line">     cont.save(<span class="string">"100_&#123;:03d&#125;.jpeg"</span>.format(i))</span><br></pre></td></tr></table></figure>
+
+<h3 id="Method-2"><a href="#Method-2" class="headerlink" title="Method 2"></a>Method 2</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> PIL <span class="keyword">import</span> Image, ImageSequence</span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">split_gif</span><span class="params">(img)</span>:</span></span><br><span class="line">    sequence = []</span><br><span class="line">    <span class="keyword">for</span> frame_idx, frame <span class="keyword">in</span> enumerate(ImageSequence.Iterator(img), <span class="number">1</span>):</span><br><span class="line">        frame = frame.convert(<span class="string">'RGB'</span>)</span><br><span class="line">        sequence.append(frame)</span><br></pre></td></tr></table></figure>
 
 
     </div>
@@ -359,8 +369,17 @@
 
   <aside id="sidebar" class="sidebar">
     <div class="sidebar-inner">
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            Overview
+          </li>
+        </ul>
+      
 
-      <div class="site-overview-wrap sidebar-panel sidebar-panel-active">
+      <div class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
 
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -449,6 +468,23 @@
 
         </div>
       </div>
+      <!--noindex-->
+        <div class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+            
+            
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#Method-1"><span class="nav-number">1.</span> <span class="nav-text">Method 1</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Method-2"><span class="nav-number">2.</span> <span class="nav-text">Method 2</span></a></li></ol></div>
+            
+
+          </div>
+        </div>
+      <!--/noindex-->
+      
 
     </div>
   </aside>
