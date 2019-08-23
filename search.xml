@@ -3,7 +3,7 @@
   <entry>
     <title><![CDATA[leetcode328_Odd_Even_Linked_List]]></title>
     <url>%2F2019%2F08%2F23%2Fleetcode328-Odd-Even-Linked-List%2F</url>
-    <content type="text"><![CDATA[Code123456789101112131415161718192021222324class Solution &#123; public ListNode oddEvenList(ListNode head) &#123; if (head == null || head.next == null) return head; ListNode odd = head; ListNode even = head.next; // This node is preserved for connect with odd tail node; ListNode evenStartNode = head.next; while (odd.next != null &amp;&amp; even.next != null) &#123; // Link next odd node, just skip odd node odd.next = even.next; // odd move forward odd = odd.next; // Same with odd node even.next = odd.next; even = even.next; &#125; odd.next = evenStartNode; return head; &#125;&#125;]]></content>
+    <content type="text"><![CDATA[Problem link(https://leetcode.com/problems/odd-even-linked-list/) Code12345678910111213141516171819202122232425class Solution &#123; public ListNode oddEvenList(ListNode head) &#123; if (head == null || head.next == null) return head; ListNode odd = head; ListNode even = head.next; // This node is preserved for connect with odd tail node; ListNode evenStartNode = head.next; // Note: stop condition, either odd.next or even.next is null, must break while while (odd.next != null &amp;&amp; even.next != null) &#123; // Link next odd node, just skip odd node odd.next = even.next; // odd move forward odd = odd.next; // Same with odd node even.next = odd.next; even = even.next; &#125; odd.next = evenStartNode; return head; &#125;&#125;]]></content>
       <categories>
         <category>leetcode</category>
       </categories>
