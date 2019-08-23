@@ -220,6 +220,100 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/08/23/leetcode328-Odd-Even-Linked-List/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Yi Long">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Act in a steady way">
+    </span>
+      <header class="post-header">
+
+        
+          <h1 class="post-title" itemprop="name headline">
+              
+              <a href="/2019/08/23/leetcode328-Odd-Even-Linked-List/" class="post-title-link" itemprop="url">leetcode328_Odd_Even_Linked_List</a>
+            
+          </h1>
+        
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+
+              
+                
+              
+
+              <time title="Created: 2019-08-23 21:10:23 / Modified: 21:12:03" itemprop="dateCreated datePublished" datetime="2019-08-23T21:10:23+08:00">2019-08-23</time>
+            </span>
+          
+            
+
+            
+          
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/leetcode/" itemprop="url" rel="index"><span itemprop="name">leetcode</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          
+            <h3 id="Code"><a href="#Code" class="headerlink" title="Code"></a>Code</h3><figure class="highlight xquery"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line">class Solution &#123;</span><br><span class="line">    public ListNode oddEvenList(ListNode<span class="built_in"> head</span>) &#123;</span><br><span class="line">        <span class="keyword">if</span> <span class="built_in">(head</span> == null ||<span class="built_in"> head</span>.<span class="keyword">next</span> == null) <span class="keyword">return</span><span class="built_in"> head</span>;</span><br><span class="line">        ListNode odd =<span class="built_in"> head</span>;</span><br><span class="line">        ListNode even =<span class="built_in"> head</span>.<span class="keyword">next</span>;</span><br><span class="line"></span><br><span class="line">        // This <span class="type">node</span> <span class="literal">is</span> preserved <span class="keyword">for</span> connect with odd<span class="built_in"> tail</span> <span class="type">node</span>;</span><br><span class="line">        ListNode evenStartNode =<span class="built_in"> head</span>.<span class="keyword">next</span>;</span><br><span class="line"></span><br><span class="line">        while (odd.<span class="keyword">next</span> != null &amp;&amp; even.<span class="keyword">next</span> != null) &#123;</span><br><span class="line">            // Link <span class="keyword">next</span> odd <span class="type">node</span>, just skip odd <span class="type">node</span></span><br><span class="line">            odd.<span class="keyword">next</span> = even.<span class="keyword">next</span>;</span><br><span class="line"></span><br><span class="line">            // odd move forward</span><br><span class="line">            odd = odd.<span class="keyword">next</span>;</span><br><span class="line"></span><br><span class="line">            // Same with odd <span class="type">node</span></span><br><span class="line">            even.<span class="keyword">next</span> = odd.<span class="keyword">next</span>;</span><br><span class="line">            even = even.<span class="keyword">next</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        odd.<span class="keyword">next</span> = evenStartNode;</span><br><span class="line">        <span class="keyword">return</span><span class="built_in"> head</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+          
+        
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+          <div class="post-eof"></div>
+        
+      </footer>
+  </div>
+  
+  
+  
+  </article>
+
+    
+      
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/08/23/leetcode83-Remove-Duplicates-from-Sorted-List/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1110,92 +1204,11 @@
   </article>
 
     
-      
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/08/17/reverse-string-recursion/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Yi Long">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Act in a steady way">
-    </span>
-      <header class="post-header">
-
-        
-          <h1 class="post-title" itemprop="name headline">
-              
-              <a href="/2019/08/17/reverse-string-recursion/" class="post-title-link" itemprop="url">reverse_string_recursion</a>
-            
-          </h1>
-        
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              <span class="post-meta-item-text">Posted on</span>
-
-              
-                
-              
-
-              <time title="Created: 2019-08-17 15:39:02 / Modified: 15:41:36" itemprop="dateCreated datePublished" datetime="2019-08-17T15:39:02+08:00">2019-08-17</time>
-            </span>
-          
-            
-
-            
-          
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          
-            <figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">std</span>::<span class="function"><span class="built_in">string</span> <span class="title">dfs</span><span class="params">(<span class="built_in">std</span>::<span class="built_in">string</span> s, <span class="keyword">int</span> i)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (i == <span class="number">0</span>) </span><br><span class="line">        <span class="keyword">return</span> s.substr(i, <span class="number">1</span>);</span><br><span class="line">    <span class="comment">// 因为涉及到字符串的拼接，所有需要将char类型转变成字符串类型</span></span><br><span class="line">    <span class="keyword">return</span> s.substr(i, <span class="number">1</span>) + dfs(s, i<span class="number">-1</span>);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    <span class="built_in">std</span>::<span class="function"><span class="built_in">string</span> <span class="title">s</span><span class="params">(<span class="string">"hello"</span>)</span></span>;</span><br><span class="line">    Solution sol = Solution();</span><br><span class="line">    <span class="built_in">std</span>::<span class="built_in">string</span> res = sol.dfs(s, s.size()<span class="number">-1</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-
-          
-        
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-          <div class="post-eof"></div>
-        
-      </footer>
-  </div>
-  
-  
-  
-  </article>
-
-    
   </section>
 
   
   <nav class="pagination">
-    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="extend next" rel="next" href="/page/2/"><i class="fa fa-angle-right" aria-label="Next page"></i></a>
+    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><a class="extend next" rel="next" href="/page/2/"><i class="fa fa-angle-right" aria-label="Next page"></i></a>
   </nav>
 
 
@@ -1228,7 +1241,7 @@
         
           <a href="/archives/">
         
-          <span class="site-state-item-count">20</span>
+          <span class="site-state-item-count">21</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
@@ -1292,7 +1305,9 @@
         
           
         
-        <span class="site-state-item-count">11</span>
+          
+        
+        <span class="site-state-item-count">12</span>
         <span class="site-state-item-name">tags</span>
         </a>
       </div>

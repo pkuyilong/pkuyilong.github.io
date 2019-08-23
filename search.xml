@@ -1,6 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[leetcode328_Odd_Even_Linked_List]]></title>
+    <url>%2F2019%2F08%2F23%2Fleetcode328-Odd-Even-Linked-List%2F</url>
+    <content type="text"><![CDATA[Code123456789101112131415161718192021222324class Solution &#123; public ListNode oddEvenList(ListNode head) &#123; if (head == null || head.next == null) return head; ListNode odd = head; ListNode even = head.next; // This node is preserved for connect with odd tail node; ListNode evenStartNode = head.next; while (odd.next != null &amp;&amp; even.next != null) &#123; // Link next odd node, just skip odd node odd.next = even.next; // odd move forward odd = odd.next; // Same with odd node even.next = odd.next; even = even.next; &#125; odd.next = evenStartNode; return head; &#125;&#125;]]></content>
+      <categories>
+        <category>leetcode</category>
+      </categories>
+      <tags>
+        <tag>Linked list</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[leetcode83_Remove_Duplicates_from_Sorted_List]]></title>
     <url>%2F2019%2F08%2F23%2Fleetcode83-Remove-Duplicates-from-Sorted-List%2F</url>
     <content type="text"><![CDATA[Code1234567891011121314151617181920212223242526272829303132333435/** * Definition for singly-linked list. * public class ListNode &#123; * int val; * ListNode next; * ListNode(int x) &#123; val = x; &#125; * &#125; */class Solution &#123; public ListNode deleteDuplicates(ListNode head) &#123; if (head == null || head.next == null) return head; ListNode prev = new ListNode(-1); ListNode cur = head; // Note1: stop condition while (cur != null) &#123; // Update prev and cur node simultaneous prev = cur; cur = cur.next; // skip node that has same val with cur.val // Note: prev don't move forward, still stay where it is // Break while loop condition : 1. cur == null or 2. different val while (cur != null &amp;&amp; prev.val == cur.val) &#123; cur = cur.next; &#125; // Update prev node to link prev and cur node prev.next = cur; &#125; return head; &#125;&#125;]]></content>
