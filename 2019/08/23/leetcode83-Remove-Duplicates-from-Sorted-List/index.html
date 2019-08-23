@@ -55,19 +55,19 @@
   };
 </script>
 
-  <meta name="description" content="123456789101112131415161718192021222324252627282930313233343536# Wrapping all together -&amp;gt; Switch between train and test set using Initializable iteratorEPOCHS = 10# create a placeholder to dynamica">
-<meta name="keywords" content="tensorflow, dataset">
+  <meta name="description" content="Code1234567891011121314151617181920212223242526272829303132333435/** * Definition for singly-linked list. * public class ListNode &amp;#123; *     int val; *     ListNode next; *     ListNode(int x) &amp;#123">
+<meta name="keywords" content="linked list">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Tensorflow_Dataset">
-<meta property="og:url" content="http://yoursite.com/2019/08/19/Tensorflow-Dataset/index.html">
+<meta property="og:title" content="leetcode83_Remove_Duplicates_from_Sorted_List">
+<meta property="og:url" content="http://yoursite.com/2019/08/23/leetcode83-Remove-Duplicates-from-Sorted-List/index.html">
 <meta property="og:site_name" content="Act in a steady way">
-<meta property="og:description" content="123456789101112131415161718192021222324252627282930313233343536# Wrapping all together -&amp;gt; Switch between train and test set using Initializable iteratorEPOCHS = 10# create a placeholder to dynamica">
+<meta property="og:description" content="Code1234567891011121314151617181920212223242526272829303132333435/** * Definition for singly-linked list. * public class ListNode &amp;#123; *     int val; *     ListNode next; *     ListNode(int x) &amp;#123">
 <meta property="og:locale" content="en">
-<meta property="og:updated_time" content="2019-08-19T11:45:43.446Z">
+<meta property="og:updated_time" content="2019-08-23T11:45:10.120Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Tensorflow_Dataset">
-<meta name="twitter:description" content="123456789101112131415161718192021222324252627282930313233343536# Wrapping all together -&amp;gt; Switch between train and test set using Initializable iteratorEPOCHS = 10# create a placeholder to dynamica">
-  <link rel="canonical" href="http://yoursite.com/2019/08/19/Tensorflow-Dataset/">
+<meta name="twitter:title" content="leetcode83_Remove_Duplicates_from_Sorted_List">
+<meta name="twitter:description" content="Code1234567891011121314151617181920212223242526272829303132333435/** * Definition for singly-linked list. * public class ListNode &amp;#123; *     int val; *     ListNode next; *     ListNode(int x) &amp;#123">
+  <link rel="canonical" href="http://yoursite.com/2019/08/23/leetcode83-Remove-Duplicates-from-Sorted-List/">
 
 
 <script id="page-configurations">
@@ -81,7 +81,7 @@
   };
 </script>
 
-  <title>Tensorflow_Dataset | Act in a steady way</title>
+  <title>leetcode83_Remove_Duplicates_from_Sorted_List | Act in a steady way</title>
   
 
 
@@ -225,7 +225,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/08/19/Tensorflow-Dataset/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/08/23/leetcode83-Remove-Duplicates-from-Sorted-List/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Yi Long">
@@ -239,7 +239,7 @@
       <header class="post-header">
 
         
-          <h1 class="post-title" itemprop="name headline">Tensorflow_Dataset
+          <h1 class="post-title" itemprop="name headline">leetcode83_Remove_Duplicates_from_Sorted_List
 
             
           </h1>
@@ -256,7 +256,7 @@
                 
               
 
-              <time title="Created: 2019-08-19 19:45:14 / Modified: 19:45:43" itemprop="dateCreated datePublished" datetime="2019-08-19T19:45:14+08:00">2019-08-19</time>
+              <time title="Created: 2019-08-23 19:35:58 / Modified: 19:45:10" itemprop="dateCreated datePublished" datetime="2019-08-23T19:35:58+08:00">2019-08-23</time>
             </span>
           
             
@@ -269,7 +269,7 @@
               </span>
               <span class="post-meta-item-text">In</span>
               
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/DL/" itemprop="url" rel="index"><span itemprop="name">DL</span></a></span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/leetcode/" itemprop="url" rel="index"><span itemprop="name">leetcode</span></a></span>
 
                 
                 
@@ -288,7 +288,7 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <figure class="highlight vim"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br></pre></td><td class="code"><pre><span class="line"># Wrapping <span class="keyword">all</span> together -&gt; Switch between train <span class="built_in">and</span> test <span class="keyword">set</span> using Initializable iterator</span><br><span class="line">EPOCHS = <span class="number">10</span></span><br><span class="line"></span><br><span class="line"># create <span class="keyword">a</span> placeholder <span class="keyword">to</span> dynamically switch between batch sizes</span><br><span class="line">batch_size = <span class="keyword">tf</span>.placeholder(<span class="keyword">tf</span>.int64)</span><br><span class="line"><span class="keyword">x</span>, <span class="keyword">y</span> = <span class="keyword">tf</span>.placeholder(<span class="keyword">tf</span>.float32, shape=[None,<span class="number">2</span>]), <span class="keyword">tf</span>.placeholder(<span class="keyword">tf</span>.float32, shape=[None,<span class="number">1</span>])</span><br><span class="line"></span><br><span class="line">dataset = <span class="keyword">tf</span>.data.Dataset.from_tensor_slices((<span class="keyword">x</span>, <span class="keyword">y</span>)).batch(batch_size).<span class="built_in">repeat</span>()</span><br><span class="line"></span><br><span class="line"># using two numpy arrays</span><br><span class="line">train_data = (np.random.sample((<span class="number">100</span>,<span class="number">2</span>)), np.random.sample((<span class="number">100</span>,<span class="number">1</span>)))</span><br><span class="line">test_data = (np.random.sample((<span class="number">20</span>,<span class="number">2</span>)), np.random.sample((<span class="number">20</span>,<span class="number">1</span>)))</span><br><span class="line">iter = dataset.make_initializable_iterator()</span><br><span class="line"># <span class="built_in">get</span> features labels</span><br><span class="line">features, labels = iter.get_next()</span><br><span class="line"></span><br><span class="line"># <span class="keyword">make</span> <span class="keyword">a</span> simple model</span><br><span class="line">net = <span class="keyword">tf</span>.layers.dense(features, <span class="number">8</span>, activation=<span class="keyword">tf</span>.<span class="built_in">tanh</span>) # pass the <span class="keyword">first</span> value from iter.get_next() <span class="keyword">as</span> <span class="built_in">input</span></span><br><span class="line">net = <span class="keyword">tf</span>.layers.dense(net, <span class="number">8</span>, activation=<span class="keyword">tf</span>.<span class="built_in">tanh</span>)</span><br><span class="line">prediction = <span class="keyword">tf</span>.layers.dense(net, <span class="number">1</span>, activation=<span class="keyword">tf</span>.<span class="built_in">tanh</span>)</span><br><span class="line">loss = <span class="keyword">tf</span>.losses.mean_squared_error(prediction, labels) # pass the second value from iter.get_net() <span class="keyword">as</span> label</span><br><span class="line">train_op = <span class="keyword">tf</span>.train.AdamOptimizer().minimize(loss)</span><br><span class="line">with <span class="keyword">tf</span>.Session() <span class="keyword">as</span> ses<span class="variable">s:</span></span><br><span class="line">    sess.run(<span class="keyword">tf</span>.global_variables_initializer())</span><br><span class="line">    # initialise iterator with train data</span><br><span class="line">    sess.run(iter.initializer, feed_dict=&#123; <span class="keyword">x</span>: train_data[<span class="number">0</span>], <span class="keyword">y</span>: train_data[<span class="number">1</span>], batch_size: BATCH_SIZE&#125;)</span><br><span class="line">    <span class="keyword">print</span>(<span class="string">'Training...'</span>)</span><br><span class="line">    <span class="keyword">for</span> i in <span class="built_in">range</span>(EPOCHS):</span><br><span class="line">        tot_loss = <span class="number">0</span></span><br><span class="line">        <span class="keyword">for</span> _ in <span class="built_in">range</span>(n_batches):</span><br><span class="line">            _, loss_value = sess.run([train_op, loss])</span><br><span class="line">            tot_loss += loss_value</span><br><span class="line">        <span class="keyword">print</span>(<span class="string">"Iter: &#123;&#125;, Loss: &#123;:.4f&#125;"</span>.format(i, tot_loss / n_batches))</span><br><span class="line">    # initialise iterator with test data</span><br><span class="line">    sess.run(iter.initializer, feed_dict=&#123; <span class="keyword">x</span>: test_data[<span class="number">0</span>], <span class="keyword">y</span>: test_data[<span class="number">1</span>], batch_size: test_data[<span class="number">0</span>].shape[<span class="number">0</span>]&#125;)</span><br><span class="line">    <span class="keyword">print</span>(<span class="string">'Test Loss: &#123;:4f&#125;'</span>.format(sess.run(loss)))</span><br></pre></td></tr></table></figure>
+        <h3 id="Code"><a href="#Code" class="headerlink" title="Code"></a>Code</h3><figure class="highlight dart"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"><span class="markdown">/**</span></span></span><br><span class="line"><span class="comment"><span class="markdown"><span class="bullet"> * </span>Definition for singly-linked list.</span></span></span><br><span class="line"><span class="comment"><span class="markdown"><span class="bullet"> * </span>public class ListNode &#123;</span></span></span><br><span class="line"><span class="comment"><span class="markdown"><span class="bullet"> *     </span>int val;</span></span></span><br><span class="line"><span class="comment"><span class="markdown"><span class="bullet"> *     </span>ListNode next;</span></span></span><br><span class="line"><span class="comment"><span class="markdown"><span class="bullet"> *     </span>ListNode(int x) &#123; val = x; &#125;</span></span></span><br><span class="line"><span class="comment"><span class="markdown"><span class="bullet"> * </span>&#125;</span></span></span><br><span class="line"><span class="comment"><span class="markdown"> */</span></span></span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line">    public ListNode deleteDuplicates(ListNode head) &#123;</span><br><span class="line">        <span class="keyword">if</span> (head == <span class="keyword">null</span> || head.next == <span class="keyword">null</span>) <span class="keyword">return</span> head;</span><br><span class="line">        ListNode prev = <span class="keyword">new</span> ListNode(<span class="number">-1</span>);</span><br><span class="line">        ListNode cur = head;</span><br><span class="line"></span><br><span class="line">        <span class="comment">// Note1: stop condition</span></span><br><span class="line">        <span class="keyword">while</span> (cur != <span class="keyword">null</span>) &#123;</span><br><span class="line"></span><br><span class="line">            <span class="comment">// Update prev and cur node simultaneous</span></span><br><span class="line">            prev = cur;</span><br><span class="line">            cur = cur.next;</span><br><span class="line"></span><br><span class="line">            <span class="comment">// skip node that has same val with cur.val</span></span><br><span class="line">            <span class="comment">// Note: prev don't move forward, still stay where it is</span></span><br><span class="line">            <span class="comment">// Break while loop condition : 1. cur == null  or 2. different val</span></span><br><span class="line">            <span class="keyword">while</span> (cur != <span class="keyword">null</span> &amp;&amp; prev.val == cur.val) &#123;      </span><br><span class="line">                cur = cur.next;</span><br><span class="line">            &#125;</span><br><span class="line"> </span><br><span class="line">            <span class="comment">// Update prev node to link prev and cur node</span></span><br><span class="line">            prev.next = cur;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> head;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
 
     </div>
@@ -305,7 +305,7 @@
           
           <div class="post-tags">
             
-              <a href="/tags/tensorflow-dataset/" rel="tag"># tensorflow, dataset</a>
+              <a href="/tags/linked-list/" rel="tag"># linked list</a>
             
           </div>
         
@@ -315,8 +315,8 @@
           <div class="post-nav">
             <div class="post-nav-next post-nav-item">
               
-                <a href="/2019/08/18/leetcode78-Subsets-bit/" rel="next" title="leetcode72_Subsets_bit">
-                  <i class="fa fa-chevron-left"></i> leetcode72_Subsets_bit
+                <a href="/2019/08/20/somaxconn-and-tcp-max-syn-backlog/" rel="next" title="somaxconn_and_tcp_max_syn_backlog">
+                  <i class="fa fa-chevron-left"></i> somaxconn_and_tcp_max_syn_backlog
                 </a>
               
             </div>
@@ -324,10 +324,6 @@
             <span class="post-nav-divider"></span>
 
             <div class="post-nav-prev post-nav-item">
-              
-                <a href="/2019/08/19/K-smallest-element/" rel="prev" title="K_smallest_element">
-                  K_smallest_element <i class="fa fa-chevron-right"></i>
-                </a>
               
             </div>
           </div>
@@ -359,8 +355,17 @@
 
   <aside id="sidebar" class="sidebar">
     <div class="sidebar-inner">
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            Overview
+          </li>
+        </ul>
+      
 
-      <div class="site-overview-wrap sidebar-panel sidebar-panel-active">
+      <div class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
 
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -447,6 +452,23 @@
 
         </div>
       </div>
+      <!--noindex-->
+        <div class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+            
+            
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#Code"><span class="nav-number">1.</span> <span class="nav-text">Code</span></a></li></ol></div>
+            
+
+          </div>
+        </div>
+      <!--/noindex-->
+      
 
     </div>
   </aside>
