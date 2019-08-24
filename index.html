@@ -223,6 +223,105 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/08/24/leetcode47-Permutations-II/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Yi Long">
+      <meta itemprop="description" content="Write down what I have learned">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Act in a steady way">
+    </span>
+      <header class="post-header">
+
+        
+          <h1 class="post-title" itemprop="name headline">
+              
+              <a href="/2019/08/24/leetcode47-Permutations-II/" class="post-title-link" itemprop="url">leetcode47_Permutations_II</a>
+            
+          </h1>
+        
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+
+              
+                
+              
+
+              <time title="Created: 2019-08-24 19:42:47 / Modified: 19:48:10" itemprop="dateCreated datePublished" datetime="2019-08-24T19:42:47+08:00">2019-08-24</time>
+            </span>
+          
+            
+
+            
+          
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/leetcode/" itemprop="url" rel="index"><span itemprop="name">leetcode</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          
+            <h1 id="Link"><a href="#Link" class="headerlink" title="Link"></a>Link</h1><p><a href="https://leetcode.com/problems/permutations-ii/" target="_blank" rel="noopener">https://leetcode.com/problems/permutations-ii/</a></p>
+<h1 id="Solution"><a href="#Solution" class="headerlink" title="Solution"></a>Solution</h1><h2 id="Method1"><a href="#Method1" class="headerlink" title="Method1"></a>Method1</h2><h3 id="Java-Code"><a href="#Java-Code" class="headerlink" title="Java Code"></a>Java Code</h3><figure class="highlight zephir"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">List</span>&lt;<span class="keyword">List</span>&lt;Integer&gt;&gt; permuteUnique(<span class="keyword">int</span>[] nums) &#123;</span><br><span class="line">        <span class="keyword">List</span>&lt;<span class="keyword">List</span>&lt;Integer&gt;&gt; res = <span class="keyword">new</span> ArrayList&lt;&gt;();</span><br><span class="line">        <span class="keyword">if</span> (nums == <span class="keyword">null</span> || nums.length == <span class="number">0</span>) <span class="keyword">return</span> res;</span><br><span class="line">        <span class="keyword">boolean</span>[] visited = <span class="keyword">new</span> <span class="keyword">boolean</span>[nums.length];</span><br><span class="line"></span><br><span class="line">        <span class="comment">// Note: Remember to sort the nums</span></span><br><span class="line">        Arrays.sort(nums);</span><br><span class="line">        <span class="keyword">List</span>&lt;Integer&gt; tmp = <span class="keyword">new</span> ArrayList&lt;&gt;();</span><br><span class="line">        helper(res, tmp, nums, visited);</span><br><span class="line">        <span class="keyword">return</span> res;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">private</span> void helper(<span class="keyword">List</span>&lt;<span class="keyword">List</span>&lt;Integer&gt;&gt; res, <span class="keyword">List</span>&lt;Integer&gt; tmp, <span class="keyword">int</span>[] nums, <span class="keyword">boolean</span>[] visited) &#123;</span><br><span class="line">        <span class="comment">// Recursion stop condition</span></span><br><span class="line">        <span class="keyword">if</span> (tmp.size() == nums.length) &#123;</span><br><span class="line">            res.add(<span class="keyword">new</span> ArrayList&lt;Integer&gt;(tmp));</span><br><span class="line">            <span class="keyword">return</span>;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="comment">// Select unvisited num</span></span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; nums.length; i++) &#123;</span><br><span class="line"></span><br><span class="line">            <span class="comment">// Skip num with some condition, very tricky, especially this: !visited[i-1]</span></span><br><span class="line">            <span class="comment">// You have no choice but to use the first elements if some elements have same val, the other is skipped</span></span><br><span class="line">            <span class="keyword">if</span> (visited[i] || i &gt; <span class="number">0</span> &amp;&amp; nums[i<span class="number">-1</span>] == nums[i] &amp;&amp; !visited[i<span class="number">-1</span>]) <span class="keyword">continue</span>;</span><br><span class="line"></span><br><span class="line">            <span class="comment">// Change context</span></span><br><span class="line">            visited[i] = <span class="keyword">true</span>;</span><br><span class="line">            tmp.add(nums[i]);</span><br><span class="line"></span><br><span class="line">            <span class="comment">// Recursion</span></span><br><span class="line">            helper(res, tmp, nums, visited);</span><br><span class="line"></span><br><span class="line">            <span class="comment">// Restore context</span></span><br><span class="line">            tmp.remove(tmp.size() <span class="number">-1</span>);</span><br><span class="line">            visited[i] = <span class="keyword">false</span>;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="Complexity"><a href="#Complexity" class="headerlink" title="Complexity"></a>Complexity</h3><ul>
+<li>Time : O(n!)</li>
+<li>Space : O(n)</li>
+</ul>
+
+          
+        
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+          <div class="post-eof"></div>
+        
+      </footer>
+  </div>
+  
+  
+  
+  </article>
+
+    
+      
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/08/24/QuickSort/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1091,121 +1190,6 @@
   </article>
 
     
-      
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/08/18/leetcode78_Subsets/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Yi Long">
-      <meta itemprop="description" content="Write down what I have learned">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Act in a steady way">
-    </span>
-      <header class="post-header">
-
-        
-          <h1 class="post-title" itemprop="name headline">
-              
-              <a href="/2019/08/18/leetcode78_Subsets/" class="post-title-link" itemprop="url">leetcode78_Subsets</a>
-            
-          </h1>
-        
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              <span class="post-meta-item-text">Posted on</span>
-
-              
-                
-              
-
-              <time title="Created: 2019-08-18 11:16:26" itemprop="dateCreated datePublished" datetime="2019-08-18T11:16:26+08:00">2019-08-18</time>
-            </span>
-          
-            
-
-            
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2019-08-19 13:10:01" itemprop="dateModified" datetime="2019-08-19T13:10:01+08:00">2019-08-19</time>
-              </span>
-            
-          
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">In</span>
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/leetcode/" itemprop="url" rel="index"><span itemprop="name">leetcode</span></a></span>
-
-                
-                
-              
-            </span>
-          
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          
-            <h3 id="Condition"><a href="#Condition" class="headerlink" title="Condition"></a>Condition</h3><ul>
-<li>Given a set of distinct integers, nums, return all possible subsets (the power set).</li>
-<li>Note: The solution set must not contain duplicate subsets.</li>
-</ul>
-<h3 id="Code1"><a href="#Code1" class="headerlink" title="Code1"></a>Code1</h3><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="built_in">std</span>::<span class="built_in">vector</span>&lt;<span class="built_in">std</span>::<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;&gt; subsets(<span class="built_in">std</span>::<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;&amp; nums) &#123;</span><br><span class="line">        <span class="comment">// nums check</span></span><br><span class="line">        <span class="keyword">if</span> (nums.empty()) <span class="keyword">return</span> res;</span><br><span class="line"></span><br><span class="line">        <span class="comment">// start pos</span></span><br><span class="line">        <span class="comment">// Note: count represents size of tmp result</span></span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> count = <span class="number">0</span>; count &lt;= nums.size(); ++count) &#123;</span><br><span class="line">            dfs(nums, count, <span class="number">0</span>);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> res;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">void</span> <span class="title">dfs</span><span class="params">(<span class="built_in">std</span>::<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;&amp; nums, <span class="keyword">int</span> count, <span class="keyword">int</span> idx)</span> </span>&#123;</span><br><span class="line">        <span class="comment">// stop conditions</span></span><br><span class="line">        <span class="keyword">if</span> (count == tmp.size()) &#123;</span><br><span class="line">            res.push_back(tmp);</span><br><span class="line">            <span class="keyword">return</span>;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="comment">// dfs and context</span></span><br><span class="line">        <span class="comment">// traverse remaining nums after idx</span></span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = idx; i &lt; nums.size(); i++) &#123;</span><br><span class="line">            <span class="comment">// Note: nums[i] instead of nums[idx]</span></span><br><span class="line">            tmp.push_back(nums[i]);</span><br><span class="line">            dfs(nums, count, i+<span class="number">1</span>);</span><br><span class="line">            tmp.pop_back();</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">private</span>:</span><br><span class="line">    <span class="built_in">std</span>::<span class="built_in">vector</span>&lt;<span class="built_in">std</span>::<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;&gt; res;</span><br><span class="line">    <span class="built_in">std</span>::<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt; tmp;</span><br><span class="line"></span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
-
-<h3 id="Summary"><a href="#Summary" class="headerlink" title="Summary"></a>Summary</h3><ul>
-<li>Note: index when traversing remaining element </li>
-<li>for loop condition is Changing, not for (int i= 0; i &lt; nums.size(); ++i) always</li>
-</ul>
-<h3 id="Code2"><a href="#Code2" class="headerlink" title="Code2"></a>Code2</h3><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="built_in">std</span>::<span class="built_in">vector</span>&lt;<span class="built_in">std</span>::<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;&gt; subsets(<span class="built_in">std</span>::<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;&amp; nums) &#123;</span><br><span class="line">        dfs(nums, <span class="number">0</span>);</span><br><span class="line">        <span class="keyword">return</span> res;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">void</span> <span class="title">dfs</span><span class="params">(<span class="built_in">std</span>::<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;&amp; nums, <span class="keyword">int</span> idx)</span> </span>&#123;</span><br><span class="line">        <span class="comment">// </span></span><br><span class="line">        res.push_back(cur);</span><br><span class="line"></span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = idx; i &lt; nums.size(); i++) &#123;</span><br><span class="line">            <span class="comment">// nums[i] selected </span></span><br><span class="line">            cur.push_back(nums[i]);</span><br><span class="line">            dfs(nums, i+<span class="number">1</span>);</span><br><span class="line">            <span class="comment">// we can ignore this element, nums[i]</span></span><br><span class="line">            cur.pop_back();</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">private</span>:</span><br><span class="line">    <span class="built_in">std</span>::<span class="built_in">vector</span>&lt;<span class="built_in">std</span>::<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;&gt; res;</span><br><span class="line">    <span class="built_in">std</span>::<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt; cur;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
-
-<h3 id="Code2-Summary"><a href="#Code2-Summary" class="headerlink" title="Code2 Summary"></a>Code2 Summary</h3><ul>
-<li>At every step, we have two choices for each element either we can ignore the element or we can include the element in cur vector</li>
-</ul>
-
-          
-        
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-          <div class="post-eof"></div>
-        
-      </footer>
-  </div>
-  
-  
-  
-  </article>
-
-    
   </section>
 
   
@@ -1243,7 +1227,7 @@
         
           <a href="/archives/">
         
-          <span class="site-state-item-count">24</span>
+          <span class="site-state-item-count">25</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
