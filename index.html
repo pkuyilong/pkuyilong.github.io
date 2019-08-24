@@ -223,6 +223,104 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/08/24/QuickSort/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Yi Long">
+      <meta itemprop="description" content="Write down what I have learned">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Act in a steady way">
+    </span>
+      <header class="post-header">
+
+        
+          <h1 class="post-title" itemprop="name headline">
+              
+              <a href="/2019/08/24/QuickSort/" class="post-title-link" itemprop="url">QuickSort</a>
+            
+          </h1>
+        
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+
+              
+                
+              
+
+              <time title="Created: 2019-08-24 16:32:10 / Modified: 17:05:59" itemprop="dateCreated datePublished" datetime="2019-08-24T16:32:10+08:00">2019-08-24</time>
+            </span>
+          
+            
+
+            
+          
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/Sort/" itemprop="url" rel="index"><span itemprop="name">Sort</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          
+            <h3 id="Java-Code"><a href="#Java-Code" class="headerlink" title="Java Code"></a>Java Code</h3><figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line">    <span class="keyword">public</span> void <span class="built_in">quickSort</span>(int[] nums, int <span class="keyword">left</span>, int <span class="keyword">right</span>) &#123;</span><br><span class="line">        <span class="keyword">if</span> (nums == null || nums.length == <span class="number">0</span>) <span class="keyword">return</span>;</span><br><span class="line"></span><br><span class="line">        <span class="comment">// Partition</span></span><br><span class="line">        <span class="keyword">if</span> (<span class="keyword">left</span> &gt;= <span class="keyword">right</span>) &#123;</span><br><span class="line">            <span class="keyword">return</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        int mid = <span class="built_in">partition</span>(nums, <span class="keyword">left</span>, <span class="keyword">right</span>);</span><br><span class="line"></span><br><span class="line">        <span class="comment">// Sort left</span></span><br><span class="line">        this.<span class="built_in">quickSort</span>(nums, <span class="keyword">left</span>, mid-<span class="number">1</span>);</span><br><span class="line"></span><br><span class="line">        <span class="comment">// Sort right</span></span><br><span class="line">        this.<span class="built_in">quickSort</span>(nums, mid+<span class="number">1</span>, <span class="keyword">right</span>);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">private</span> int <span class="built_in">partition</span>(int[] nums, int <span class="keyword">left</span>, int <span class="keyword">right</span>) &#123;</span><br><span class="line">        int key = nums[<span class="keyword">left</span>];</span><br><span class="line">        <span class="keyword">while</span> (<span class="keyword">left</span> &lt; <span class="keyword">right</span>) &#123;</span><br><span class="line">            <span class="keyword">while</span> (<span class="keyword">left</span> &lt; <span class="keyword">right</span> &amp;&amp; nums[<span class="keyword">right</span>] &gt; key) &#123;</span><br><span class="line">                <span class="keyword">right</span>--;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="built_in">swap</span>(nums, <span class="keyword">left</span>, <span class="keyword">right</span>);</span><br><span class="line">            <span class="keyword">while</span> (<span class="keyword">left</span> &lt; <span class="keyword">right</span> &amp;&amp; nums[<span class="keyword">left</span>] &lt; key) &#123;</span><br><span class="line">                <span class="keyword">left</span>++;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="built_in">swap</span>(nums, <span class="keyword">left</span>, <span class="keyword">right</span>);</span><br><span class="line">        &#125;</span><br><span class="line">        nums[<span class="keyword">left</span>] = key;</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">left</span>;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">private</span> void <span class="built_in">swap</span>(int[] nums, int idx1, int idx2) &#123;</span><br><span class="line">        int tmp = nums[idx1];</span><br><span class="line">        nums[idx1] = nums[idx2];</span><br><span class="line">        nums[idx2] = tmp;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Stest</span></span>&#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> void main(<span class="type">String</span>[] args) &#123;</span><br><span class="line">        int[] nums = &#123; <span class="number">100</span>, <span class="number">2</span>, <span class="number">99</span>, <span class="number">38</span>, <span class="number">4</span>, <span class="number">3</span>, <span class="number">5</span>,<span class="number">1</span>&#125;;</span><br><span class="line">        <span class="type">Solution</span> sol = new <span class="type">Solution</span>();</span><br><span class="line">        sol.<span class="built_in">quickSort</span>(nums, <span class="number">0</span>, nums.length - <span class="number">1</span>);</span><br><span class="line">        <span class="keyword">for</span> (int i = <span class="number">0</span>; i &lt; nums.length; i++) &#123;</span><br><span class="line">            <span class="type">System</span>.out.<span class="built_in">println</span>(nums[i]);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="type">System</span>.out.<span class="built_in">println</span>(<span class="string">"hello world"</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="Complexity"><a href="#Complexity" class="headerlink" title="Complexity"></a>Complexity</h3><ul>
+<li>Time : Average: O(nlogn) Worst: O(n^2)</li>
+<li>Space : O(log(n))</li>
+</ul>
+
+          
+        
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+          <div class="post-eof"></div>
+        
+      </footer>
+  </div>
+  
+  
+  
+  </article>
+
+    
+      
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/08/24/Leetcode116-Populating-Next-Right-Pointers-in-Each-Node/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1108,107 +1206,6 @@
   </article>
 
     
-      
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/08/18/leetcode46-Permutations/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Yi Long">
-      <meta itemprop="description" content="Write down what I have learned">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Act in a steady way">
-    </span>
-      <header class="post-header">
-
-        
-          <h1 class="post-title" itemprop="name headline">
-              
-              <a href="/2019/08/18/leetcode46-Permutations/" class="post-title-link" itemprop="url">leetcode46_Permutations</a>
-            
-          </h1>
-        
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              <span class="post-meta-item-text">Posted on</span>
-
-              
-                
-              
-
-              <time title="Created: 2019-08-18 05:33:26 / Modified: 06:04:28" itemprop="dateCreated datePublished" datetime="2019-08-18T05:33:26+08:00">2019-08-18</time>
-            </span>
-          
-            
-
-            
-          
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">In</span>
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/leetcode/" itemprop="url" rel="index"><span itemprop="name">leetcode</span></a></span>
-
-                
-                
-              
-            </span>
-          
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          
-            <h3 id="Contidion"><a href="#Contidion" class="headerlink" title="Contidion"></a>Contidion</h3><ul>
-<li>Given a collection of <strong>distinct</strong> integers, return all possible permutations.</li>
-</ul>
-<h3 id="Code"><a href="#Code" class="headerlink" title="Code"></a>Code</h3><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="built_in">std</span>::<span class="built_in">vector</span>&lt;<span class="built_in">std</span>::<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;&gt; permute(<span class="built_in">std</span>::<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt; &amp;nums) &#123;</span><br><span class="line">        <span class="keyword">if</span> (nums.empty()) <span class="keyword">return</span> res;</span><br><span class="line">        dfs(nums, <span class="number">0</span>);</span><br><span class="line">        <span class="keyword">return</span> res;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">void</span> <span class="title">dfs</span><span class="params">(<span class="built_in">std</span>::<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt; &amp;nums, <span class="keyword">int</span> idx)</span> </span>&#123;</span><br><span class="line">        <span class="comment">// stop condition</span></span><br><span class="line">        <span class="keyword">if</span> (idx == nums.size()) &#123;</span><br><span class="line">            res.push_back(tmp);</span><br><span class="line">            <span class="keyword">return</span>;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="comment">// check each num of nums</span></span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; nums.size(); i++) &#123;</span><br><span class="line">            <span class="keyword">if</span> (numSet.count(nums[i]) == <span class="number">0</span>) &#123;</span><br><span class="line"></span><br><span class="line">                <span class="comment">// process nums[i]</span></span><br><span class="line">                numSet.insert(nums[i]);</span><br><span class="line">                tmp.push_back(nums[i]);</span><br><span class="line"></span><br><span class="line">                <span class="comment">// dfs</span></span><br><span class="line">                dfs(nums, idx+<span class="number">1</span>);</span><br><span class="line"></span><br><span class="line">                <span class="comment">// restore context</span></span><br><span class="line">                tmp.pop_back();</span><br><span class="line">                numSet.erase(nums[i]);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">private</span>:</span><br><span class="line">    <span class="built_in">std</span>::<span class="built_in">unordered_set</span>&lt;<span class="keyword">int</span>&gt; numSet;</span><br><span class="line">    <span class="built_in">std</span>::<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt; tmp;</span><br><span class="line">    <span class="built_in">std</span>::<span class="built_in">vector</span>&lt;<span class="built_in">std</span>::<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;&gt; res;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
-
-<h3 id="Summary"><a href="#Summary" class="headerlink" title="Summary"></a>Summary</h3><ul>
-<li>Note: <strong>Change</strong> context and <strong>Restore</strong> context</li>
-<li>if nums has duplicated elemement, it’s not a good idea to use unordered_set, use vector<bool> instead to mark which element is used</bool></li>
-</ul>
-
-          
-        
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-          <div class="post-eof"></div>
-        
-      </footer>
-  </div>
-  
-  
-  
-  </article>
-
-    
   </section>
 
   
@@ -1246,7 +1243,7 @@
         
           <a href="/archives/">
         
-          <span class="site-state-item-count">23</span>
+          <span class="site-state-item-count">24</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
@@ -1275,7 +1272,9 @@
         
           
         
-        <span class="site-state-item-count">7</span>
+          
+        
+        <span class="site-state-item-count">8</span>
         <span class="site-state-item-name">categories</span>
         </a>
       </div>
