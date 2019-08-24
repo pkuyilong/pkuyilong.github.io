@@ -1,6 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[Leetcode116_Populating_Next_Right_Pointers_in_Each_Node]]></title>
+    <url>%2F2019%2F08%2F24%2FLeetcode116-Populating-Next-Right-Pointers-in-Each-Node%2F</url>
+    <content type="text"><![CDATA[Code123456789101112131415161718192021222324252627282930class Node &#123; public int val; public Node left; public Node right; public Node next; public Node() &#123;&#125; public Node(int _val,Node _left,Node _right,Node _next) &#123; val = _val; left = _left; right = _right; next = _next; &#125;&#125;;class Solution &#123; public Node connect(Node root) &#123; if (root == null) return root; if (root.left != null) &#123; root.left.next = root.right; &#125; if (root.right != null &amp;&amp; root.next != null) &#123; root.right.next = root.next.left; &#125; connect(root.left); connect(root.right); return root; &#125;&#125;]]></content>
+      <categories>
+        <category>leetcode</category>
+      </categories>
+      <tags>
+        <tag>Tree</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[Prim_and_Kruskal]]></title>
     <url>%2F2019%2F08%2F23%2FPrim-and-Kruskal%2F</url>
     <content type="text"><![CDATA[Similarity greedy algorithm Boths have two sets, the one set contains all visited nodes, the other set contains all unvisited nodes; find the minimal edges between two sets Difference Prim starts with a random node, while Kruskal starts with the miminal edgs]]></content>
