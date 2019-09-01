@@ -223,6 +223,323 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/08/17/leetcode127-Word-Ladder/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Yi Long">
+      <meta itemprop="description" content="Write down what I have learned">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Steady">
+    </span>
+      <header class="post-header">
+
+        
+          <h1 class="post-title" itemprop="name headline">
+              
+              <a href="/2019/08/17/leetcode127-Word-Ladder/" class="post-title-link" itemprop="url">leetcode127_Word_Ladder</a>
+            
+          </h1>
+        
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+
+              
+                
+              
+
+              <time title="Created: 2019-08-17 14:10:30" itemprop="dateCreated datePublished" datetime="2019-08-17T14:10:30+08:00">2019-08-17</time>
+            </span>
+          
+            
+
+            
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2019-08-25 23:19:14" itemprop="dateModified" datetime="2019-08-25T23:19:14+08:00">2019-08-25</time>
+              </span>
+            
+          
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/leetcode/" itemprop="url" rel="index"><span itemprop="name">leetcode</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          
+            <h2 id="思路"><a href="#思路" class="headerlink" title="思路"></a>思路</h2><p>对于求解最短、最优的问题，可以使用bfs来做。</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="keyword">int</span> <span class="title">ladderLength</span><span class="params">(<span class="built_in">std</span>::<span class="built_in">string</span> beginWord, <span class="built_in">std</span>::<span class="built_in">string</span> endWord, <span class="built_in">std</span>::<span class="built_in">vector</span>&lt;<span class="built_in">std</span>::<span class="built_in">string</span>&gt;&amp; wordList)</span> </span>&#123;</span><br><span class="line">	<span class="comment">// preprocess</span></span><br><span class="line">        <span class="built_in">std</span>::<span class="built_in">unordered_set</span>&lt;<span class="built_in">std</span>::<span class="built_in">string</span>&gt; wordSet(wordList.begin(), wordList.end());</span><br><span class="line">        <span class="keyword">if</span> (wordSet.count(endWord) == <span class="number">0</span>) <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">        <span class="built_in">std</span>::<span class="built_in">queue</span>&lt;<span class="built_in">std</span>::pair&lt;<span class="built_in">std</span>::<span class="built_in">string</span>, <span class="keyword">int</span>&gt;&gt; que;</span><br><span class="line">        wordSet.insert(endWord);</span><br><span class="line">        wordSet.erase(beginWord);</span><br><span class="line">	</span><br><span class="line">	<span class="comment">// bfs start</span></span><br><span class="line">        que.push(<span class="built_in">std</span>::make_pair(beginWord ,<span class="number">1</span>));</span><br><span class="line">        <span class="keyword">while</span> (!que.empty()) &#123;</span><br><span class="line">            <span class="built_in">std</span>::pair&lt;<span class="built_in">std</span>::<span class="built_in">string</span>, <span class="keyword">int</span>&gt; tmp = que.front(); que.pop();</span><br><span class="line">            <span class="built_in">std</span>::<span class="built_in">string</span> word = tmp.first;</span><br><span class="line">            <span class="keyword">unsigned</span> <span class="keyword">int</span> wordLevel = tmp.second;</span><br><span class="line">            <span class="built_in">std</span>::<span class="built_in">string</span> tmpWord = word;</span><br><span class="line"></span><br><span class="line">            <span class="comment">// find optimal and return </span></span><br><span class="line">            <span class="keyword">if</span> (word == endWord) <span class="keyword">return</span> wordLevel;</span><br><span class="line"></span><br><span class="line">            <span class="comment">// find next words and put into queue</span></span><br><span class="line">            <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; word.size(); ++i) &#123;</span><br><span class="line">                tmpWord = word;</span><br><span class="line">                <span class="keyword">for</span> (<span class="keyword">int</span> j = <span class="number">0</span>; j &lt; <span class="number">26</span>; j++) &#123;</span><br><span class="line">                    tmpWord[i] = <span class="string">'a'</span> + j;</span><br><span class="line">                    <span class="keyword">if</span> (wordSet.count(tmpWord)) &#123;</span><br><span class="line">                        que.push(<span class="built_in">std</span>::make_pair(tmpWord, wordLevel + <span class="number">1</span>));</span><br><span class="line"></span><br><span class="line">                        <span class="comment">// remove the element pushed to queue</span></span><br><span class="line">                        wordSet.erase(tmpWord);</span><br><span class="line">                    &#125;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+
+
+          
+        
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+          <div class="post-eof"></div>
+        
+      </footer>
+  </div>
+  
+  
+  
+  </article>
+
+    
+      
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/08/16/git-common-order/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Yi Long">
+      <meta itemprop="description" content="Write down what I have learned">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Steady">
+    </span>
+      <header class="post-header">
+
+        
+          <h1 class="post-title" itemprop="name headline">
+              
+              <a href="/2019/08/16/git-common-order/" class="post-title-link" itemprop="url">git_common_order</a>
+            
+          </h1>
+        
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+
+              
+                
+              
+
+              <time title="Created: 2019-08-16 18:19:53" itemprop="dateCreated datePublished" datetime="2019-08-16T18:19:53+08:00">2019-08-16</time>
+            </span>
+          
+            
+
+            
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2019-08-23 10:52:45" itemprop="dateModified" datetime="2019-08-23T10:52:45+08:00">2019-08-23</time>
+              </span>
+            
+          
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/Git/" itemprop="url" rel="index"><span itemprop="name">Git</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          
+            <h3 id="标签管理"><a href="#标签管理" class="headerlink" title="标签管理"></a>标签管理</h3><figure class="highlight crmsh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"> git <span class="keyword">tag</span> <span class="title">v0</span></span><br><span class="line"> </span><br><span class="line"> git push --tags origin <span class="literal">master</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="版本回退"><a href="#版本回退" class="headerlink" title="版本回退"></a>版本回退</h3><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">git <span class="keyword">reset</span> <span class="keyword">HEAD</span>^</span><br><span class="line"></span><br><span class="line">git <span class="keyword">reset</span> a5d385b</span><br></pre></td></tr></table></figure>
+
+<h3 id="分支重命名"><a href="#分支重命名" class="headerlink" title="分支重命名"></a>分支重命名</h3><figure class="highlight armasm"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="symbol">git</span> <span class="keyword">branch </span>-m clean_code optimizing_gif_process</span><br></pre></td></tr></table></figure>
+
+<h3 id="推送到远程分支"><a href="#推送到远程分支" class="headerlink" title="推送到远程分支"></a>推送到远程分支</h3><figure class="highlight maxima"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git <span class="built_in">push</span> <span class="built_in">origin</span> optimizing_gif_process:optimizing_gif_process</span><br></pre></td></tr></table></figure>
+
+<h3 id="删除到远程分支-也就是推送空分支到远程仓库"><a href="#删除到远程分支-也就是推送空分支到远程仓库" class="headerlink" title="删除到远程分支, 也就是推送空分支到远程仓库"></a>删除到远程分支, 也就是推送空分支到远程仓库</h3><figure class="highlight maxima"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git <span class="built_in">push</span> <span class="built_in">origin</span> :optimizing_gif_process</span><br></pre></td></tr></table></figure>
+
+
+          
+        
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+          <div class="post-eof"></div>
+        
+      </footer>
+  </div>
+  
+  
+  
+  </article>
+
+    
+      
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/08/16/Split-GIF-Frames/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Yi Long">
+      <meta itemprop="description" content="Write down what I have learned">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Steady">
+    </span>
+      <header class="post-header">
+
+        
+          <h1 class="post-title" itemprop="name headline">
+              
+              <a href="/2019/08/16/Split-GIF-Frames/" class="post-title-link" itemprop="url">Split_GIF_Frames</a>
+            
+          </h1>
+        
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+
+              
+                
+              
+
+              <time title="Created: 2019-08-16 12:30:42" itemprop="dateCreated datePublished" datetime="2019-08-16T12:30:42+08:00">2019-08-16</time>
+            </span>
+          
+            
+
+            
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2019-08-23 21:34:01" itemprop="dateModified" datetime="2019-08-23T21:34:01+08:00">2019-08-23</time>
+              </span>
+            
+          
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/CV/" itemprop="url" rel="index"><span itemprop="name">CV</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          
+            <h3 id="Method-1"><a href="#Method-1" class="headerlink" title="Method 1"></a>Method 1</h3><figure class="highlight coffeescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> imageio</span><br><span class="line"><span class="keyword">from</span> PIL <span class="keyword">import</span> Image</span><br><span class="line"></span><br><span class="line"><span class="comment"># 这一步解析之后，是一个list，里面存放着图片的array数据。</span></span><br><span class="line">frames = imageio.mimread(<span class="string">'100.gif'</span>)</span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span> i, cont <span class="keyword">in</span> enumerate(frames):</span><br><span class="line">     <span class="comment">#  将array数据转换成Image可以识别的数据</span></span><br><span class="line">     cont = Image.fromarray(cont)</span><br><span class="line">     cont = cont.convert(<span class="string">"RGB"</span>)</span><br><span class="line">     cont.save(<span class="string">"100_&#123;:03d&#125;.jpeg"</span>.format(i))</span><br></pre></td></tr></table></figure>
+
+<h3 id="Method-2"><a href="#Method-2" class="headerlink" title="Method 2"></a>Method 2</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> PIL <span class="keyword">import</span> Image, ImageSequence</span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">split_gif</span><span class="params">(img)</span>:</span></span><br><span class="line">    sequence = []</span><br><span class="line">    <span class="keyword">for</span> frame_idx, frame <span class="keyword">in</span> enumerate(ImageSequence.Iterator(img), <span class="number">1</span>):</span><br><span class="line">        frame = frame.convert(<span class="string">'RGB'</span>)</span><br><span class="line">        sequence.append(frame)</span><br></pre></td></tr></table></figure>
+
+
+          
+        
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+          <div class="post-eof"></div>
+        
+      </footer>
+  </div>
+  
+  
+  
+  </article>
+
+    
+      
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/08/15/Resnet-Attention/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -963,7 +1280,7 @@
         
           <a href="/archives/">
         
-          <span class="site-state-item-count">27</span>
+          <span class="site-state-item-count">30</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>

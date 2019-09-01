@@ -55,19 +55,19 @@
   };
 </script>
 
-  <meta name="description" content="Write down what I have learned">
+  <meta name="description" content="Recursion Solution12345public static String reverse(String s) &amp;#123;        if (s == null || s.length() == 1) return s;        return reverse(s.substring(1)) + s.charAt(0);    &amp;#125;&amp;#125;">
 <meta name="keywords" content="leetcode, DL, Perception">
-<meta property="og:type" content="website">
-<meta property="og:title" content="categories">
-<meta property="og:url" content="http://yoursite.com/categories/index.html">
+<meta property="og:type" content="article">
+<meta property="og:title" content="ReverseString">
+<meta property="og:url" content="http://yoursite.com/2019/09/02/ReverseString/index.html">
 <meta property="og:site_name" content="Steady">
-<meta property="og:description" content="Write down what I have learned">
+<meta property="og:description" content="Recursion Solution12345public static String reverse(String s) &amp;#123;        if (s == null || s.length() == 1) return s;        return reverse(s.substring(1)) + s.charAt(0);    &amp;#125;&amp;#125;">
 <meta property="og:locale" content="en">
-<meta property="og:updated_time" content="2019-08-16T01:55:14.061Z">
+<meta property="og:updated_time" content="2019-09-01T16:05:23.750Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="categories">
-<meta name="twitter:description" content="Write down what I have learned">
-  <link rel="canonical" href="http://yoursite.com/categories/">
+<meta name="twitter:title" content="ReverseString">
+<meta name="twitter:description" content="Recursion Solution12345public static String reverse(String s) &amp;#123;        if (s == null || s.length() == 1) return s;        return reverse(s.substring(1)) + s.charAt(0);    &amp;#125;&amp;#125;">
+  <link rel="canonical" href="http://yoursite.com/2019/09/02/ReverseString/">
 
 
 <script id="page-configurations">
@@ -75,13 +75,13 @@
   CONFIG.page = {
     sidebar: "",
     isHome: false,
-    isPost: false,
-    isPage: true,
+    isPost: true,
+    isPage: false,
     isArchive: false
   };
 </script>
 
-  <title>categories | Steady</title>
+  <title>ReverseString | Steady</title>
   
 
 
@@ -183,18 +183,6 @@
 
     
 
-    
-    
-      
-      
-    
-      
-      
-    
-    
-
-  
-
 </nav>
   <div class="site-search">
     
@@ -231,80 +219,114 @@
 
   <div id="posts" class="posts-expand">
     
-    
-    
-    <div class="post-block page">
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/09/02/ReverseString/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Yi Long">
+      <meta itemprop="description" content="Write down what I have learned">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Steady">
+    </span>
       <header class="post-header">
 
-<h1 class="post-title" itemprop="name headline">categories
-
-</h1>
-
-<div class="post-meta">
-  
-
-</div>
-
-</header>
-
-      
-      
-      
-      <div class="post-body">
         
-          <div class="category-all-page">
-            <div class="category-all-title">
-              
-              
-                
-                  
-                
-              
-                
-                  
-                
-              
-                
-                  
-                
+          <h1 class="post-title" itemprop="name headline">ReverseString
+
+            
+          </h1>
+        
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+
               
                 
-                  
+              
+
+              <time title="Created: 2019-09-02 00:04:08 / Modified: 00:05:23" itemprop="dateCreated datePublished" datetime="2019-09-02T00:04:08+08:00">2019-09-02</time>
+            </span>
+          
+            
+
+            
+          
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/leetcode/" itemprop="url" rel="index"><span itemprop="name">leetcode</span></a></span>
+
+                
                 
               
-                
-                  
-                
+            </span>
+          
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <h1 id="Recursion-Solution"><a href="#Recursion-Solution" class="headerlink" title="Recursion Solution"></a>Recursion Solution</h1><figure class="highlight processing"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">String</span> <span class="built_in">reverse</span>(<span class="keyword">String</span> s) &#123;</span><br><span class="line">        <span class="keyword">if</span> (s == <span class="keyword">null</span> || s.length() == <span class="number">1</span>) <span class="keyword">return</span> s;</span><br><span class="line">        <span class="keyword">return</span> <span class="built_in">reverse</span>(s.substring(<span class="number">1</span>)) + s.charAt(<span class="number">0</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+    </div>
+
+    
+    
+    
+        
+      
+
+      <footer class="post-footer">
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-next post-nav-item">
               
-                
-                  
-                
+                <a href="/2019/08/30/DataAnalyse/" rel="next" title="DataAnalyse">
+                  <i class="fa fa-chevron-left"></i> DataAnalyse
+                </a>
               
-                
-                  
-                
-              
-                
-                  
-                
-              
-              8 categories in total
             </div>
-            <div class="category-all">
-              <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/CV/">CV</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/DL/">DL</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Git/">Git</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Life/">Life</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Linux/">Linux</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Sort/">Sort</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Think/">Think</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/leetcode/">leetcode</a><span class="category-list-count">17</span></li></ul>
+
+            <span class="post-nav-divider"></span>
+
+            <div class="post-nav-prev post-nav-item">
+              
             </div>
           </div>
         
-      </div>
-      
-      
-      
-    </div>
+      </footer>
     
+  </div>
+  
+  
+  
+  </article>
 
-    
-    
-    
   </div>
 
 
@@ -324,8 +346,17 @@
 
   <aside id="sidebar" class="sidebar">
     <div class="sidebar-inner">
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            Overview
+          </li>
+        </ul>
+      
 
-      <div class="site-overview-wrap sidebar-panel sidebar-panel-active">
+      <div class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
 
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -420,6 +451,23 @@
 
         </div>
       </div>
+      <!--noindex-->
+        <div class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+            
+            
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Recursion-Solution"><span class="nav-number">1.</span> <span class="nav-text">Recursion Solution</span></a></li></ol></div>
+            
+
+          </div>
+        </div>
+      <!--/noindex-->
+      
 
     </div>
   </aside>
@@ -521,10 +569,9 @@
 
 
   
-    <script src="/js/scrollspy.js?v=7.3.0"></script>
+  <script src="/js/scrollspy.js?v=7.3.0"></script>
 <script src="/js/post-details.js?v=7.3.0"></script>
 
-  
 
 </body>
 </html>

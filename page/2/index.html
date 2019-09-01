@@ -223,6 +223,296 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/08/23/leetcode83-Remove-Duplicates-from-Sorted-List/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Yi Long">
+      <meta itemprop="description" content="Write down what I have learned">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Steady">
+    </span>
+      <header class="post-header">
+
+        
+          <h1 class="post-title" itemprop="name headline">
+              
+              <a href="/2019/08/23/leetcode83-Remove-Duplicates-from-Sorted-List/" class="post-title-link" itemprop="url">leetcode83_Remove_Duplicates_from_Sorted_List</a>
+            
+          </h1>
+        
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+
+              
+                
+              
+
+              <time title="Created: 2019-08-23 19:35:58 / Modified: 19:45:10" itemprop="dateCreated datePublished" datetime="2019-08-23T19:35:58+08:00">2019-08-23</time>
+            </span>
+          
+            
+
+            
+          
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/leetcode/" itemprop="url" rel="index"><span itemprop="name">leetcode</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          
+            <h3 id="Code"><a href="#Code" class="headerlink" title="Code"></a>Code</h3><figure class="highlight dart"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"><span class="markdown">/**</span></span></span><br><span class="line"><span class="comment"><span class="markdown"><span class="bullet"> * </span>Definition for singly-linked list.</span></span></span><br><span class="line"><span class="comment"><span class="markdown"><span class="bullet"> * </span>public class ListNode &#123;</span></span></span><br><span class="line"><span class="comment"><span class="markdown"><span class="bullet"> *     </span>int val;</span></span></span><br><span class="line"><span class="comment"><span class="markdown"><span class="bullet"> *     </span>ListNode next;</span></span></span><br><span class="line"><span class="comment"><span class="markdown"><span class="bullet"> *     </span>ListNode(int x) &#123; val = x; &#125;</span></span></span><br><span class="line"><span class="comment"><span class="markdown"><span class="bullet"> * </span>&#125;</span></span></span><br><span class="line"><span class="comment"><span class="markdown"> */</span></span></span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line">    public ListNode deleteDuplicates(ListNode head) &#123;</span><br><span class="line">        <span class="keyword">if</span> (head == <span class="keyword">null</span> || head.next == <span class="keyword">null</span>) <span class="keyword">return</span> head;</span><br><span class="line">        ListNode prev = <span class="keyword">new</span> ListNode(<span class="number">-1</span>);</span><br><span class="line">        ListNode cur = head;</span><br><span class="line"></span><br><span class="line">        <span class="comment">// Note1: stop condition</span></span><br><span class="line">        <span class="keyword">while</span> (cur != <span class="keyword">null</span>) &#123;</span><br><span class="line"></span><br><span class="line">            <span class="comment">// Update prev and cur node simultaneous</span></span><br><span class="line">            prev = cur;</span><br><span class="line">            cur = cur.next;</span><br><span class="line"></span><br><span class="line">            <span class="comment">// skip node that has same val with cur.val</span></span><br><span class="line">            <span class="comment">// Note: prev don't move forward, still stay where it is</span></span><br><span class="line">            <span class="comment">// Break while loop condition : 1. cur == null  or 2. different val</span></span><br><span class="line">            <span class="keyword">while</span> (cur != <span class="keyword">null</span> &amp;&amp; prev.val == cur.val) &#123;      </span><br><span class="line">                cur = cur.next;</span><br><span class="line">            &#125;</span><br><span class="line"> </span><br><span class="line">            <span class="comment">// Update prev node to link prev and cur node</span></span><br><span class="line">            prev.next = cur;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> head;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+          
+        
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+          <div class="post-eof"></div>
+        
+      </footer>
+  </div>
+  
+  
+  
+  </article>
+
+    
+      
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/08/20/somaxconn-and-tcp-max-syn-backlog/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Yi Long">
+      <meta itemprop="description" content="Write down what I have learned">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Steady">
+    </span>
+      <header class="post-header">
+
+        
+          <h1 class="post-title" itemprop="name headline">
+              
+              <a href="/2019/08/20/somaxconn-and-tcp-max-syn-backlog/" class="post-title-link" itemprop="url">somaxconn_and_tcp_max_syn_backlog</a>
+            
+          </h1>
+        
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+
+              
+                
+              
+
+              <time title="Created: 2019-08-20 14:17:43 / Modified: 14:20:50" itemprop="dateCreated datePublished" datetime="2019-08-20T14:17:43+08:00">2019-08-20</time>
+            </span>
+          
+            
+
+            
+          
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/Linux/" itemprop="url" rel="index"><span itemprop="name">Linux</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          
+            <figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">###系统参数含义</span><br><span class="line">-net<span class="selector-class">.core</span><span class="selector-class">.somaxconn</span> = <span class="number">262144</span></span><br><span class="line">	<span class="number">1</span>.系统级设置， 决定了最大可以存储已经建立连接的socket的数量</span><br><span class="line">-net<span class="selector-class">.ipv4</span><span class="selector-class">.tcp_max_syn_backlog</span> = <span class="number">8192</span></span><br><span class="line">	<span class="number">1</span>.决定了最大可以存储半连接的socket的数量</span><br><span class="line"></span><br><span class="line">-net<span class="selector-class">.ipv4</span><span class="selector-class">.tcp_syncookies</span> = <span class="number">1</span> 用来防范syn-flood攻击</span><br><span class="line"></span><br><span class="line">###关系</span><br><span class="line">-理论上来说，net<span class="selector-class">.ipv4</span><span class="selector-class">.tcp_max_syn_backlog</span> &gt;= net<span class="selector-class">.core</span><span class="selector-class">.somaxconn</span></span><br></pre></td></tr></table></figure>
+
+
+          
+        
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+          <div class="post-eof"></div>
+        
+      </footer>
+  </div>
+  
+  
+  
+  </article>
+
+    
+      
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/08/19/K-smallest-element/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Yi Long">
+      <meta itemprop="description" content="Write down what I have learned">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Steady">
+    </span>
+      <header class="post-header">
+
+        
+          <h1 class="post-title" itemprop="name headline">
+              
+              <a href="/2019/08/19/K-smallest-element/" class="post-title-link" itemprop="url">K_smallest_element</a>
+            
+          </h1>
+        
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+
+              
+                
+              
+
+              <time title="Created: 2019-08-19 22:27:23 / Modified: 22:38:23" itemprop="dateCreated datePublished" datetime="2019-08-19T22:27:23+08:00">2019-08-19</time>
+            </span>
+          
+            
+
+            
+          
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/leetcode/" itemprop="url" rel="index"><span itemprop="name">leetcode</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          
+            <h3 id="Condition"><a href="#Condition" class="headerlink" title="Condition"></a>Condition</h3><ul>
+<li>find k smallest element in array, suppose k == 3</li>
+</ul>
+<h3 id="Solution"><a href="#Solution" class="headerlink" title="Solution"></a>Solution</h3><ul>
+<li>In order to find k smallest element, we need to keep a max heap to store the smaller elements</li>
+<li>if come across a new elemnt smaller than heap top(), namely max element in heap, we need to remove this element and push new one.</li>
+</ul>
+<h3 id="Code"><a href="#Code" class="headerlink" title="Code"></a>Code</h3><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;queue&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    <span class="built_in">std</span>::priority_queue&lt;<span class="keyword">int</span>&gt; pq;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; <span class="number">7</span>; i++) &#123;</span><br><span class="line">        <span class="keyword">int</span> tmp = rand() % <span class="number">20</span>;</span><br><span class="line">        <span class="comment">//  suppose k equals to 3</span></span><br><span class="line">        <span class="keyword">if</span> (i &lt; <span class="number">3</span>) &#123;</span><br><span class="line">            pq.push(tmp);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">else</span> <span class="keyword">if</span> (tmp &lt; pq.top()) &#123;</span><br><span class="line">            <span class="comment">// remove the max elements</span></span><br><span class="line">            pq.pop();</span><br><span class="line"></span><br><span class="line">            <span class="comment">// push new one </span></span><br><span class="line">            pq.push(tmp);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="built_in">std</span>::<span class="built_in">cout</span> &lt;&lt; <span class="string">"Hello, World!"</span> &lt;&lt; <span class="built_in">std</span>::<span class="built_in">endl</span>;</span><br><span class="line">    <span class="keyword">while</span> (!pq.empty()) &#123;</span><br><span class="line">        <span class="built_in">std</span>::<span class="built_in">cout</span> &lt;&lt; pq.top() &lt;&lt; <span class="built_in">std</span>::<span class="built_in">endl</span>;</span><br><span class="line">        pq.pop();</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="Time-Complexity"><a href="#Time-Complexity" class="headerlink" title="Time Complexity"></a>Time Complexity</h3><p>nLog(K), n means all elements in array, K means max heap size, update and adjust heap need log(k).</p>
+
+          
+        
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+          <div class="post-eof"></div>
+        
+      </footer>
+  </div>
+  
+  
+  
+  </article>
+
+    
+      
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/08/19/Tensorflow-Dataset/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -904,323 +1194,6 @@
   </article>
 
     
-      
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/08/17/leetcode127-Word-Ladder/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Yi Long">
-      <meta itemprop="description" content="Write down what I have learned">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Steady">
-    </span>
-      <header class="post-header">
-
-        
-          <h1 class="post-title" itemprop="name headline">
-              
-              <a href="/2019/08/17/leetcode127-Word-Ladder/" class="post-title-link" itemprop="url">leetcode127_Word_Ladder</a>
-            
-          </h1>
-        
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              <span class="post-meta-item-text">Posted on</span>
-
-              
-                
-              
-
-              <time title="Created: 2019-08-17 14:10:30" itemprop="dateCreated datePublished" datetime="2019-08-17T14:10:30+08:00">2019-08-17</time>
-            </span>
-          
-            
-
-            
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2019-08-25 23:19:14" itemprop="dateModified" datetime="2019-08-25T23:19:14+08:00">2019-08-25</time>
-              </span>
-            
-          
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">In</span>
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/leetcode/" itemprop="url" rel="index"><span itemprop="name">leetcode</span></a></span>
-
-                
-                
-              
-            </span>
-          
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          
-            <h2 id="思路"><a href="#思路" class="headerlink" title="思路"></a>思路</h2><p>对于求解最短、最优的问题，可以使用bfs来做。</p>
-<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="keyword">int</span> <span class="title">ladderLength</span><span class="params">(<span class="built_in">std</span>::<span class="built_in">string</span> beginWord, <span class="built_in">std</span>::<span class="built_in">string</span> endWord, <span class="built_in">std</span>::<span class="built_in">vector</span>&lt;<span class="built_in">std</span>::<span class="built_in">string</span>&gt;&amp; wordList)</span> </span>&#123;</span><br><span class="line">	<span class="comment">// preprocess</span></span><br><span class="line">        <span class="built_in">std</span>::<span class="built_in">unordered_set</span>&lt;<span class="built_in">std</span>::<span class="built_in">string</span>&gt; wordSet(wordList.begin(), wordList.end());</span><br><span class="line">        <span class="keyword">if</span> (wordSet.count(endWord) == <span class="number">0</span>) <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">        <span class="built_in">std</span>::<span class="built_in">queue</span>&lt;<span class="built_in">std</span>::pair&lt;<span class="built_in">std</span>::<span class="built_in">string</span>, <span class="keyword">int</span>&gt;&gt; que;</span><br><span class="line">        wordSet.insert(endWord);</span><br><span class="line">        wordSet.erase(beginWord);</span><br><span class="line">	</span><br><span class="line">	<span class="comment">// bfs start</span></span><br><span class="line">        que.push(<span class="built_in">std</span>::make_pair(beginWord ,<span class="number">1</span>));</span><br><span class="line">        <span class="keyword">while</span> (!que.empty()) &#123;</span><br><span class="line">            <span class="built_in">std</span>::pair&lt;<span class="built_in">std</span>::<span class="built_in">string</span>, <span class="keyword">int</span>&gt; tmp = que.front(); que.pop();</span><br><span class="line">            <span class="built_in">std</span>::<span class="built_in">string</span> word = tmp.first;</span><br><span class="line">            <span class="keyword">unsigned</span> <span class="keyword">int</span> wordLevel = tmp.second;</span><br><span class="line">            <span class="built_in">std</span>::<span class="built_in">string</span> tmpWord = word;</span><br><span class="line"></span><br><span class="line">            <span class="comment">// find optimal and return </span></span><br><span class="line">            <span class="keyword">if</span> (word == endWord) <span class="keyword">return</span> wordLevel;</span><br><span class="line"></span><br><span class="line">            <span class="comment">// find next words and put into queue</span></span><br><span class="line">            <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; word.size(); ++i) &#123;</span><br><span class="line">                tmpWord = word;</span><br><span class="line">                <span class="keyword">for</span> (<span class="keyword">int</span> j = <span class="number">0</span>; j &lt; <span class="number">26</span>; j++) &#123;</span><br><span class="line">                    tmpWord[i] = <span class="string">'a'</span> + j;</span><br><span class="line">                    <span class="keyword">if</span> (wordSet.count(tmpWord)) &#123;</span><br><span class="line">                        que.push(<span class="built_in">std</span>::make_pair(tmpWord, wordLevel + <span class="number">1</span>));</span><br><span class="line"></span><br><span class="line">                        <span class="comment">// remove the element pushed to queue</span></span><br><span class="line">                        wordSet.erase(tmpWord);</span><br><span class="line">                    &#125;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
-
-
-          
-        
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-          <div class="post-eof"></div>
-        
-      </footer>
-  </div>
-  
-  
-  
-  </article>
-
-    
-      
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/08/16/git-common-order/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Yi Long">
-      <meta itemprop="description" content="Write down what I have learned">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Steady">
-    </span>
-      <header class="post-header">
-
-        
-          <h1 class="post-title" itemprop="name headline">
-              
-              <a href="/2019/08/16/git-common-order/" class="post-title-link" itemprop="url">git_common_order</a>
-            
-          </h1>
-        
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              <span class="post-meta-item-text">Posted on</span>
-
-              
-                
-              
-
-              <time title="Created: 2019-08-16 18:19:53" itemprop="dateCreated datePublished" datetime="2019-08-16T18:19:53+08:00">2019-08-16</time>
-            </span>
-          
-            
-
-            
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2019-08-23 10:52:45" itemprop="dateModified" datetime="2019-08-23T10:52:45+08:00">2019-08-23</time>
-              </span>
-            
-          
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">In</span>
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/Git/" itemprop="url" rel="index"><span itemprop="name">Git</span></a></span>
-
-                
-                
-              
-            </span>
-          
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          
-            <h3 id="标签管理"><a href="#标签管理" class="headerlink" title="标签管理"></a>标签管理</h3><figure class="highlight crmsh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"> git <span class="keyword">tag</span> <span class="title">v0</span></span><br><span class="line"> </span><br><span class="line"> git push --tags origin <span class="literal">master</span></span><br></pre></td></tr></table></figure>
-
-<h3 id="版本回退"><a href="#版本回退" class="headerlink" title="版本回退"></a>版本回退</h3><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">git <span class="keyword">reset</span> <span class="keyword">HEAD</span>^</span><br><span class="line"></span><br><span class="line">git <span class="keyword">reset</span> a5d385b</span><br></pre></td></tr></table></figure>
-
-<h3 id="分支重命名"><a href="#分支重命名" class="headerlink" title="分支重命名"></a>分支重命名</h3><figure class="highlight armasm"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="symbol">git</span> <span class="keyword">branch </span>-m clean_code optimizing_gif_process</span><br></pre></td></tr></table></figure>
-
-<h3 id="推送到远程分支"><a href="#推送到远程分支" class="headerlink" title="推送到远程分支"></a>推送到远程分支</h3><figure class="highlight maxima"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git <span class="built_in">push</span> <span class="built_in">origin</span> optimizing_gif_process:optimizing_gif_process</span><br></pre></td></tr></table></figure>
-
-<h3 id="删除到远程分支-也就是推送空分支到远程仓库"><a href="#删除到远程分支-也就是推送空分支到远程仓库" class="headerlink" title="删除到远程分支, 也就是推送空分支到远程仓库"></a>删除到远程分支, 也就是推送空分支到远程仓库</h3><figure class="highlight maxima"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git <span class="built_in">push</span> <span class="built_in">origin</span> :optimizing_gif_process</span><br></pre></td></tr></table></figure>
-
-
-          
-        
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-          <div class="post-eof"></div>
-        
-      </footer>
-  </div>
-  
-  
-  
-  </article>
-
-    
-      
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/08/16/Split-GIF-Frames/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Yi Long">
-      <meta itemprop="description" content="Write down what I have learned">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Steady">
-    </span>
-      <header class="post-header">
-
-        
-          <h1 class="post-title" itemprop="name headline">
-              
-              <a href="/2019/08/16/Split-GIF-Frames/" class="post-title-link" itemprop="url">Split_GIF_Frames</a>
-            
-          </h1>
-        
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              <span class="post-meta-item-text">Posted on</span>
-
-              
-                
-              
-
-              <time title="Created: 2019-08-16 12:30:42" itemprop="dateCreated datePublished" datetime="2019-08-16T12:30:42+08:00">2019-08-16</time>
-            </span>
-          
-            
-
-            
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2019-08-23 21:34:01" itemprop="dateModified" datetime="2019-08-23T21:34:01+08:00">2019-08-23</time>
-              </span>
-            
-          
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">In</span>
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/CV/" itemprop="url" rel="index"><span itemprop="name">CV</span></a></span>
-
-                
-                
-              
-            </span>
-          
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          
-            <h3 id="Method-1"><a href="#Method-1" class="headerlink" title="Method 1"></a>Method 1</h3><figure class="highlight coffeescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> imageio</span><br><span class="line"><span class="keyword">from</span> PIL <span class="keyword">import</span> Image</span><br><span class="line"></span><br><span class="line"><span class="comment"># 这一步解析之后，是一个list，里面存放着图片的array数据。</span></span><br><span class="line">frames = imageio.mimread(<span class="string">'100.gif'</span>)</span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span> i, cont <span class="keyword">in</span> enumerate(frames):</span><br><span class="line">     <span class="comment">#  将array数据转换成Image可以识别的数据</span></span><br><span class="line">     cont = Image.fromarray(cont)</span><br><span class="line">     cont = cont.convert(<span class="string">"RGB"</span>)</span><br><span class="line">     cont.save(<span class="string">"100_&#123;:03d&#125;.jpeg"</span>.format(i))</span><br></pre></td></tr></table></figure>
-
-<h3 id="Method-2"><a href="#Method-2" class="headerlink" title="Method 2"></a>Method 2</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> PIL <span class="keyword">import</span> Image, ImageSequence</span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">split_gif</span><span class="params">(img)</span>:</span></span><br><span class="line">    sequence = []</span><br><span class="line">    <span class="keyword">for</span> frame_idx, frame <span class="keyword">in</span> enumerate(ImageSequence.Iterator(img), <span class="number">1</span>):</span><br><span class="line">        frame = frame.convert(<span class="string">'RGB'</span>)</span><br><span class="line">        sequence.append(frame)</span><br></pre></td></tr></table></figure>
-
-
-          
-        
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-          <div class="post-eof"></div>
-        
-      </footer>
-  </div>
-  
-  
-  
-  </article>
-
-    
   </section>
 
   
@@ -1258,7 +1231,7 @@
         
           <a href="/archives/">
         
-          <span class="site-state-item-count">27</span>
+          <span class="site-state-item-count">30</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
