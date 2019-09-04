@@ -191,7 +191,7 @@
   <entry>
     <title><![CDATA[git_common_order]]></title>
     <url>%2F2019%2F08%2F16%2Fgit-common-order%2F</url>
-    <content type="text"><![CDATA[标签管理123 git tag v0 git push --tags origin master 版本回退123git reset HEAD^git reset a5d385b 分支重命名1git branch -m clean_code optimizing_gif_process 推送到远程分支1git push origin optimizing_gif_process:optimizing_gif_process 删除到远程分支, 也就是推送空分支到远程仓库1git push origin :optimizing_gif_process]]></content>
+    <content type="text"><![CDATA[标签管理123 git tag v0 git push --tags origin master 版本回退123git reset HEAD^git reset a5d385b 分支重命名1git branch -m clean_code optimizing_gif_process 推送到远程分支1git push origin optimizing_gif_process:optimizing_gif_process 删除到远程分支, 也就是推送空分支到远程仓库1git push origin :optimizing_gif_process 如果出现落后N个分支, 超前N个分支 如果有冲突，要优先处理冲突 如果没有冲突，直接执行以下命令1git merge]]></content>
       <categories>
         <category>Git</category>
       </categories>
